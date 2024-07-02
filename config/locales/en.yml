@@ -72,6 +72,10 @@ en:
       email: "Email: %{email}"
       admin_panel: "Administrator Panel"
       take_action: "To view the new user or to take the necessary action, visit the Administrator Panel"
+    role_change_notification:
+      role_change: "Your user account has been updated"
+      role_change_description: "The role \"%{new_role}\" has been assigned to your bigbluebutton account"
+      site: "log in to BigBlueButton"
     reset:
       password_reset: Reset Password
       password_reset_requested: A password reset has been requested for %{email}.
