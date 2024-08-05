@@ -43,6 +43,11 @@ class UserCreator
                      rules.find { |rule| email.ends_with? rule.second if rule.second }
                    end
 
+    if matched_rule
+      updated_mappers = @roles_mappers.gsub(/\b#{Regexp.escape(matched_rule.first + "=" + matched_rule.second)}\b,? ?/, "")
+      SiteSetting.joins(:setting).find_by( provider: @provider, setting: { name: 'RoleMapping' }).update(value: updated_mappers)
+    end
+
     Role.find_by(name: matched_rule&.first, provider: @provider)
   end
 end

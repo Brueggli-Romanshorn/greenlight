@@ -45,11 +45,24 @@ module Api
                                     )
           return render_error status: :not_found unless site_setting
 
-          update = if params[:name] == 'BrandingImage'
-                     site_setting.image.attach params[:site_setting][:value]
+          setting_value = params[:site_setting][:value]
+
+          update = unless params[:name] == 'BrandingImage'
+                     setting_value.to_s
+                     if  params[:name] == 'RoleMapping'
+                       rules = setting_value.split(',').map { |rule| rule.split('=') }
+                       rules.delete_if do |rule|
+                         rule.second.downcase!
+                         !User.find_by(email: rule.second).nil?
+                       end
+                       rules.compact!
+                       setting_value = rules.map { |pair| pair.join('=') }.join(',')
+                     end
+                     site_setting.update(value: setting_value)
                    else
-                     site_setting.update(value: params[:site_setting][:value].to_s)
+                     site_setting.image.attach setting_value
                    end
+
 
           return render_error status: :bad_request, errors: site_setting.errors.to_a unless update
 
