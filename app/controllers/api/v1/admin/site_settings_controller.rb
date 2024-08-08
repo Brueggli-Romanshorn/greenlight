@@ -50,6 +50,7 @@ module Api
           update = unless params[:name] == 'BrandingImage'
                      setting_value.to_s
                      if  params[:name] == 'RoleMapping'
+                       setting_value.gsub!(/\s+/, '')
                        rules = setting_value.split(',').map { |rule| rule.split('=') }
                        rules.delete_if do |rule|
                          rule.second.downcase!
