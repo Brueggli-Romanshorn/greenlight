@@ -88,6 +88,7 @@ Rails.application.routes.draw do
       resources :server_tags, only: :show, param: :friendly_id
 
       namespace :admin do
+        resources :role_mappings, only: [:index]
         resources :users, only: %i[update] do
           collection do
             get '/verified', to: 'users#verified'

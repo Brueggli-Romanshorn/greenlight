@@ -14,12 +14,13 @@
 // You should have received a copy of the GNU Lesser General Public License along
 // with Greenlight; if not, see <http://www.gnu.org/licenses/>.
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Dropdown, Row, Stack } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import Button from 'react-bootstrap/Button';
 import useUpdateSiteSetting from '../../../../hooks/mutations/admin/site_settings/useUpdateSiteSetting';
 import useSiteSettings from '../../../../hooks/queries/admin/site_settings/useSiteSettings';
+import useRoleMapping from '../../../../hooks/queries/admin/site_settings/useRoleMapping';
 import SettingsRow from '../SettingsRow';
 import useEnv from '../../../../hooks/queries/env/useEnv';
 import SettingSelect from '../settings/SettingSelect';
@@ -28,12 +29,54 @@ import useRoles from '../../../../hooks/queries/admin/roles/useRoles';
 export default function Registration() {
   const { t } = useTranslation();
   const { data: env } = useEnv();
-  const { data: siteSettings } = useSiteSettings(['RoleMapping', 'DefaultRole', 'ResyncOnLogin', 'RegistrationMethod', 'AllowedDomains']);
+  const { data: siteSettings } = useSiteSettings(['DefaultRole', 'ResyncOnLogin', 'RegistrationMethod', 'AllowedDomains']);
+  const { data: roleMapping } = useRoleMapping();
   const { data: roles } = useRoles();
   const updateRegistrationMethod = useUpdateSiteSetting('RegistrationMethod');
   const updateDefaultRole = useUpdateSiteSetting('DefaultRole');
   const updateRoleMapping = useUpdateSiteSetting('RoleMapping');
   const updateDomainSignUp = useUpdateSiteSetting('AllowedDomains');
+
+  const [loading, setLoading] = useState(false);
+  const [inputValue, setInputValue] = useState(roleMapping || '');
+
+  useEffect(() => {
+    if (roleMapping) {
+      setInputValue(roleMapping);
+    }
+  }, [roleMapping]);
+
+  const refetchData = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch('/api/v1/admin/role_mappings.json', {
+        headers: {
+        'Accept': 'application/json'
+      }
+    });
+    if (!response.ok) {
+      throw new Error('Network response was not ok ' + response.statusText);
+    }
+    const data = await response.json();
+    console.log(data);
+    setInputValue(data.data); // here should the new value be assigned to the input elment
+    } catch (error) {
+      console.error('Error fetching data:', error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleUpdate = async (e) => {
+    try {
+      const value = e.target.previousSibling.value;
+      console.log('Updating role mapping with value:', value);
+      await updateRoleMapping.mutateAsync({ value });
+      await refetchData();
+    } catch (error) {
+      console.error('Error updating role mapping:', error);
+    }
+  };
 
   return (
     <>
@@ -89,16 +132,18 @@ export default function Registration() {
           <input
             className="form-control"
             placeholder={t('admin.site_settings.registration.enter_role_mapping_rule')}
-            defaultValue={siteSettings?.RoleMapping}
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
           />
           <Button
             variant="brand"
             className="ms-2"
-            onClick={(e) => updateRoleMapping.mutate({ value: e.target.previousSibling.value })}
+            onClick={handleUpdate}
           >
             {t('update')}
           </Button>
         </Stack>
+        {loading && <p>Loading...</p>}
       </Row>
 
       <Row className="mb-3">
