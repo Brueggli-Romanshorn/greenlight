@@ -25,6 +25,7 @@ import SettingsRow from '../SettingsRow';
 import useEnv from '../../../../hooks/queries/env/useEnv';
 import SettingSelect from '../settings/SettingSelect';
 import useRoles from '../../../../hooks/queries/admin/roles/useRoles';
+import Spinner from '../../../shared_components/utilities/Spinner';
 
 export default function Registration() {
   const { t } = useTranslation();
@@ -36,7 +37,7 @@ export default function Registration() {
   const updateDefaultRole = useUpdateSiteSetting('DefaultRole');
   const updateRoleMapping = useUpdateSiteSetting('RoleMapping');
   const updateDomainSignUp = useUpdateSiteSetting('AllowedDomains');
-
+  // changes fmo1: review naming-convention
   const [loading, setLoading] = useState(false);
   const [inputValue, setInputValue] = useState(roleMapping || '');
 
@@ -139,11 +140,11 @@ export default function Registration() {
             variant="brand"
             className="ms-2"
             onClick={handleUpdate}
+            disabled={loading}
           >
-            {t('update')}
+            { loading ? <Spinner className="me-2" /> : t('update') }
           </Button>
         </Stack>
-        {loading && <p>Loading...</p>}
       </Row>
 
       <Row className="mb-3">
