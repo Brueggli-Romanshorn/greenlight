@@ -31,8 +31,8 @@
   "action_permanent": "Diese Aktion kann nicht rückgängig gemacht werden.",
   "homepage": {
     "welcome_bbb": "Willkommen in BigBlueButton.",
-    "bigbluebutton_description": "BigBlueButton ist ein Open-Source-Webkonferenzsystem für Online-Kurse. Die Plattform optimiert das Lernen, indem sie es ermöglicht, zusammenzuarbeiten und Feedback in Echtzeit zu erhalten.",
-    "greenlight_description": "Erstelle mit ihr eigene Räume, um Konferenzen abzuhalten, oder tritt über einen kurzen und bequemen Link einer bestehenden bei.",
+    "bigbluebutton_description": "BigBlueButton ist ein OpenSource-Webkonferenzsystem optimiert für Online-Seminare. \nDie Plattform bietet Funktionen für Echtzeit-Feedback an und ermöglicht das Arbeiten in Gruppen.",
+    "greenlight_description": "Erstelle und verwalte Konferenz-Räume oder tritt über einen kurzen Link einer bestehenden Konferenz bei.",
     "learn_more": "Erfahre mehr über BigBlueButton",
     "explore_features": "Entdecke unsere Features",
     "meeting_title": "Konferenzen starten",
