@@ -31,6 +31,9 @@ Rails.application.routes.draw do
   # All the Api endpoints must be under /api/v1 and must have an extension .json.
   namespace :api do
     namespace :v1 do
+      get '/terms', to: 'legal_informations#terms'
+      get '/privacy_policy', to: 'legal_informations#privacy_policy'
+      get '/company_information', to: 'legal_informations#company_information'
       resources :sessions, only: %i[index create] do
         collection do
           delete 'signout', to: 'sessions#destroy'

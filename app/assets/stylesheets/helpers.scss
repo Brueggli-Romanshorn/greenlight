@@ -73,3 +73,22 @@
   box-shadow: 0 0 0 100vmax whitesmoke;
   clip-path: inset(0 -100vmax);
 }
+
+.terms {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+  
+  .card-body {
+    padding: 0vh 0vw .2vh 0vw;
+  }
+
+  .card-header {
+    font-size: calc(0.25rem + 1.25vw);
+  }
+  
+  .card-text {
+    overflow-y: scroll;
+    padding: 1vh var(--bs-card-cap-padding-x);
+    max-height: calc(80vh - $header-height - $header-height - $footer-height);
+  }
+}
