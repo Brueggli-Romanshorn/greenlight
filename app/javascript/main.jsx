@@ -32,7 +32,7 @@ import Rooms from './components/rooms/Rooms';
 import HomePage from './components/home/HomePage';
 import Terms from './components/legal_informations/Terms';
 import PrivacyPolicy from './components/legal_informations/PrivacyPolicy';
-import CompanyInformation from './components/legal_informations/CompanyInformation';
+import CompanyInfo from './components/legal_informations/CompanyInfo';
 import RoomJoin from './components/rooms/room/join/RoomJoin';
 import ForgetPassword from './components/users/password_management/ForgetPassword';
 import ManageUsers from './components/admin/manage_users/ManageUsers';
@@ -106,7 +106,7 @@ const router = createBrowserRouter(
 
       <Route path="/terms" element={<Terms />} />
       <Route path="/privacy_policy" element={<PrivacyPolicy />} />
-      <Route path="/company_information" element={<CompanyInformation />} />
+      <Route path="/company_info" element={<CompanyInfo />} />
       <Route path="/rooms/:friendlyId/join" element={<RoomJoin />} />
       <Route path="/rooms/:friendlyId/public_recordings" element={<PublicRecordings />} />
       <Route path="/:roomId" element={<RoomIdRouter />} />

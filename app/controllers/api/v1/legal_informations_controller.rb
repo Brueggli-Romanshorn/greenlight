@@ -30,7 +30,7 @@ module Api
         render_data status: :ok
       end
 
-      def company_information
+      def company_info
         render_data status: :ok
       end
     end
