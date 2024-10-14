@@ -19,7 +19,7 @@ import {
   Col, Row,
 } from 'react-bootstrap';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 import {
   ArrowRightIcon, Cog8ToothIcon, ComputerDesktopIcon, VideoCameraIcon, WrenchScrewdriverIcon,
 } from '@heroicons/react/24/outline';
@@ -96,12 +96,12 @@ export default function HomePage() {
           <div id="homepage-hero">
             <h1 className="my-4"> {t('homepage.welcome_bbb')} </h1>
             <p className="text-muted fs-5">
-              {t('homepage.bigbluebutton_description')}
+              <Trans i18nKey="homepage.bigbluebutton_description" components={{ 1: <br /> }} />
             </p>
             <p className="text-muted fs-5">
               {t('homepage.greenlight_description')}
             </p>
-            <a href="https://bigbluebutton.org/" className="fs-5 text-link fw-bolder">
+            <a href="https://bigbluebutton.org/" target="_blank" className="fs-5 text-link fw-bolder">
               {t('homepage.learn_more')}
               <ArrowRightIcon className="hi-s ms-2" />
             </a>
