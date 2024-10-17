@@ -24,13 +24,19 @@ import { useAuth } from '../../contexts/auth/AuthProvider';
 export default function Footer() {
   const { t } = useTranslation();
   const { data: env } = useEnv();
-  const { data: links } = useSiteSetting(['Terms', 'PrivacyPolicy']);
+  const { data: links } = useSiteSetting(['Terms', 'PrivacyPolicy', 'HelpCenter']);
   const currentUser = useAuth();
-  const isAdmin = currentUser && currentUser.role && currentUser?.role.name === 'Administrator';
+  const isAuthenticated = currentUser?.signed_in;
 
   return (
     <footer id="footer" className="footer background-whitesmoke text-center">
       <Container id="footer-container" className="py-3">
+      { (isAuthenticated && links?.HelpCenter)
+          && (
+            <a className="ps-3" href={links?.HelpCenter} target="_blank" rel="noreferrer">
+                { t('help_center') }
+            </a> 
+          )}
         { links?.Terms
           && (
             <a className="ps-3" href={links?.Terms} rel="noreferrer">
@@ -43,7 +49,7 @@ export default function Footer() {
               { t('admin.site_settings.administration.privacy_policy') }
             </a>
           )}
-        <a className="ps-3" href="https://www.brueggli.ch/" target="_blank" rel="noreferrer">Brüggli:Romanshorn</a>
+        { !isAuthenticated && <a className="ps-3" href="https://www.brueggli.ch/" target="_blank" rel="noreferrer">{ t('legal_informations.company_name') }</a> }
       </Container>
     </footer>
   );
