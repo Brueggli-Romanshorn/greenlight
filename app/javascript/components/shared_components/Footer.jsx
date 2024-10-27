@@ -39,13 +39,13 @@ export default function Footer() {
           )}
         { links?.Terms
           && (
-            <a className="ps-3" href={links?.Terms} rel="noreferrer">
+            <a className="ps-3" href="/terms" rel="noreferrer">
               { t('admin.site_settings.administration.terms') }
             </a>
           )}
         { links?.PrivacyPolicy
           && (
-            <a className="ps-3" href={links?.PrivacyPolicy} rel="noreferrer">
+            <a className="ps-3" href="/privacy_policy" rel="noreferrer">
               { t('admin.site_settings.administration.privacy_policy') }
             </a>
           )}

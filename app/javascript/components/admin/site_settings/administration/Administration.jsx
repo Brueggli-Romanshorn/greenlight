@@ -19,6 +19,7 @@ import { Row } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import LinksForm from './LinksForm';
 import TextForm from './TextForm';
+import SettingsRow from '../SettingsRow';
 import useUpdateSiteSetting from '../../../../hooks/mutations/admin/site_settings/useUpdateSiteSetting';
 import useSiteSettings from '../../../../hooks/queries/admin/site_settings/useSiteSettings';
 
@@ -28,40 +29,42 @@ export default function Administration() {
 
   return (
     <>
+      <SettingsRow
+        name="Terms"
+        title={t('admin.site_settings.administration.terms')}
+        description={(
+          <p className="text-muted">
+            { t('admin.site_settings.administration.change_term_links') }
+          </p>
+      )}
+        value={siteSettings?.Terms}
+      />
+      <SettingsRow
+        name="PrivacyPolicy"
+        title={t('admin.site_settings.administration.privacy')}
+        description={(
+          <p className="text-muted">
+            { t('admin.site_settings.administration.change_privacy_link') }
+          </p>
+      )}
+        value={siteSettings?.PrivacyPolicy}
+      />
       <Row>
-        <h6> { t('admin.site_settings.administration.maintenance') } </h6>
-        <p className="text-muted"> { t('admin.site_settings.administration.change_maintenance_text') } </p>
-        <TextForm
-          id="maintenanceForm"
-          mutation={() => useUpdateSiteSetting('Maintenance')}
-          value={siteSettings?.Maintenance}
-        />
-      </Row>
-      <Row>
-        <h6> { t('admin.site_settings.administration.terms') } </h6>
-        <p className="text-muted"> { t('admin.site_settings.administration.change_term_links') } </p>
-        <LinksForm
-          id="termsForm"
-          mutation={() => useUpdateSiteSetting('Terms')}
-          value={siteSettings?.Terms}
-        />
-      </Row>
-      <Row>
-        <h6> { t('admin.site_settings.administration.privacy') } </h6>
-        <p className="text-muted"> { t('admin.site_settings.administration.change_privacy_link') } </p>
-        <LinksForm
-          id="privacyForm"
-          mutation={() => useUpdateSiteSetting('PrivacyPolicy')}
-          value={siteSettings?.PrivacyPolicy}
-        />
-      </Row>
-      <Row>
-        <h6> { t('admin.site_settings.administration.helpcenter') } </h6>
+        <strong> { t('admin.site_settings.administration.helpcenter') } </strong>
         <p className="text-muted"> { t('admin.site_settings.administration.change_helpcenter_link') } </p>
         <LinksForm
           id="helpForm"
           mutation={() => useUpdateSiteSetting('HelpCenter')}
           value={siteSettings?.HelpCenter}
+        />
+      </Row>
+      <Row>
+        <strong> { t('admin.site_settings.administration.maintenance') } </strong>
+        <p className="text-muted"> { t('admin.site_settings.administration.change_maintenance_text') } </p>
+        <TextForm
+          id="maintenanceForm"
+          mutation={() => useUpdateSiteSetting('Maintenance')}
+          value={siteSettings?.Maintenance}
         />
       </Row>
     </>
