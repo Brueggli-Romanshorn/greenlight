@@ -34,7 +34,7 @@ export default function Administration() {
         title={t('admin.site_settings.administration.terms')}
         description={(
           <p className="text-muted">
-            { t('admin.site_settings.administration.change_term_links') }
+            { t('admin.site_settings.administration.en_disable_terms_link') }
           </p>
       )}
         value={siteSettings?.Terms}
@@ -44,7 +44,7 @@ export default function Administration() {
         title={t('admin.site_settings.administration.privacy')}
         description={(
           <p className="text-muted">
-            { t('admin.site_settings.administration.change_privacy_link') }
+            { t('admin.site_settings.administration.en_disable_privacy_link') }
           </p>
       )}
         value={siteSettings?.PrivacyPolicy}
