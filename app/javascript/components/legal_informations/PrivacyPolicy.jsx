@@ -18,17 +18,19 @@ import React, { useEffect } from 'react';
 import { Card } from 'react-bootstrap';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Navigate } from 'react-router-dom';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 import { toast } from 'react-toastify';
 import useEnv from '../../hooks/queries/env/useEnv';
 import MarkdownViewer from '../shared_components/utilities/MarkdownViewer';
+import useSiteSetting from '../../hooks/queries/site_settings/useSiteSetting';
 
 export default function PrivacyPolicy() {
   const { t } = useTranslation();
   const [searchParams, setSearchParams] = useSearchParams();
   const error = searchParams.get('error');
-  // const { data: recordValue } = useRoomConfigValue('record');
   const { data: env } = useEnv();
+  const { data: privacy, isLoading } = useSiteSetting(['PrivacyPolicy']);
 
   useEffect(() => {
     switch (error) {
@@ -68,12 +70,18 @@ export default function PrivacyPolicy() {
     [searchParams, env],
   );
 
+  if (isLoading) return null;
+
+  if (privacy === false){
+    return <Navigate to="/404" />;
+  }
+
   return (
     <>
       <div className="vertical-center">
-        <Card className="terms">
+        <Card className="lg-content">
           <Card.Header>
-              {t('legal_informations.privacy_policy')}
+            <h2>{t('legal_informations.privacy_policy')}</h2>
           </Card.Header>
           <Card.Body>
              <Card.Text><MarkdownViewer fileName="privacy.md" /></Card.Text>

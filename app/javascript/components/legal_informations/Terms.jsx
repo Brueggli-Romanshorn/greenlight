@@ -20,15 +20,17 @@ import {
 } from 'react-bootstrap';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import useEnv from '../../hooks/queries/env/useEnv';
+import useSiteSetting from '../../hooks/queries/site_settings/useSiteSetting';
 
 export default function Terms() {
   const { t } = useTranslation();
   const [searchParams, setSearchParams] = useSearchParams();
   const error = searchParams.get('error');
-  // const { data: recordValue } = useRoomConfigValue('record');
   const { data: env } = useEnv();
+  const { data: terms, isLoading } = useSiteSetting(['Terms']);
 
   useEffect(() => {
     switch (error) {
@@ -67,6 +69,12 @@ export default function Terms() {
     },
     [searchParams, env],
   );
+
+  if (isLoading) return null;
+
+  if (terms === false){
+    return <Navigate to="/404" />;
+  }
 
   return (
     <>
