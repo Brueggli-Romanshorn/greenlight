@@ -37,7 +37,7 @@ export default function SearchBar({ searchInput, setSearchInput }) {
 
   return (
     <input
-      className="search-bar rounded border form-control"
+      className="search-bar rounded form-control"
       placeholder={t('search')}
       type="search"
       onChange={debouncedOnChangeHandler}
