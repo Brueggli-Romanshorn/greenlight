@@ -87,7 +87,7 @@ export default function PrivacyPolicy() {
              <Card.Text><MarkdownViewer fileName="privacy.md" /></Card.Text>
           </Card.Body>
         </Card>
-        <a href="/" className="fs-5 text-link fw-bolder">
+        <a href="/" className="text-link fw-bolder">
           <ArrowLeftIcon className="hi-s ms-2" />
           {t('return_home')}
         </a>

@@ -32,13 +32,13 @@ export default function Rooms() {
 
   return (
     <Tabs className="wide-white pt-5" defaultActiveKey="rooms" unmountOnExit>
-      <Tab className="background-whitesmoke" eventKey="rooms" title={t('room.rooms')}>
+      <Tab eventKey="rooms" title={t('room.rooms')}>
         <RoomsList />
       </Tab>
 
       { (recordValue !== 'false')
        && (
-       <Tab className="background-whitesmoke" eventKey="recordings" title={<RecordingsCountTab count={recordingsCount} />}>
+       <Tab eventKey="recordings" title={<RecordingsCountTab count={recordingsCount} />}>
          <UserRecordings />
        </Tab>
        )}

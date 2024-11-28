@@ -77,7 +77,7 @@ export default function CompanyInformation() {
             <h1 className="my-4"> {t('legal_informations.company_information')} </h1>
           </div>
           <MarkdownViewer fileName="company.md" />
-          <a href="/" className="fs-5 text-link fw-bolder">
+          <a href="/" className="text-link fw-bolder">
             <ArrowLeftIcon className="hi-s ms-2" />
             {t('return_home')}
           </a>
