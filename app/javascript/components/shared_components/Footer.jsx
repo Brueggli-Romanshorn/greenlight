@@ -29,7 +29,7 @@ export default function Footer() {
   const isAuthenticated = currentUser?.signed_in;
 
   return (
-    <footer id="footer" className="footer background-whitesmoke text-center">
+    <footer id="footer" className="footer text-center">
       <Container id="footer-container" className="py-3">
       { (isAuthenticated && links?.HelpCenter)
           && (
