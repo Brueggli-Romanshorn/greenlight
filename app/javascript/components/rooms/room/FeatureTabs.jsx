@@ -55,23 +55,23 @@ export default function FeatureTabs() {
     <Tabs className="wide-white pt-4 mx-0" defaultActiveKey={showRecTabs ? 'recordings' : 'presentation'} unmountOnExit>
       {showRecTabs
         && (
-          <Tab className="background-whitesmoke" eventKey="recordings" title={t('recording.recordings')}>
+          <Tab eventKey="recordings" title={t('recording.recordings')}>
             <RoomRecordings />
           </Tab>
         )}
       {settings?.PreuploadPresentation
         && (
-          <Tab className="background-whitesmoke" eventKey="presentation" title={t('room.presentation.presentation')}>
+          <Tab eventKey="presentation" title={t('room.presentation.presentation')}>
             <Presentation />
           </Tab>
         )}
       {(settings?.ShareRooms && (!room?.shared || currentUser?.permissions?.ManageRooms === 'true'))
         && (
-          <Tab className="background-whitesmoke" eventKey="access" title={t('room.shared_access.access')}>
+          <Tab eventKey="access" title={t('room.shared_access.access')}>
             <SharedAccess />
           </Tab>
         )}
-      <Tab className="background-whitesmoke" eventKey="settings" title={t('room.settings.settings')}>
+      <Tab eventKey="settings" title={t('room.settings.settings')}>
         <RoomSettings />
       </Tab>
     </Tabs>
