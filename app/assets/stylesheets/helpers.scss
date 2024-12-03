@@ -22,7 +22,7 @@
 .wide-white {
   background: white;
   box-shadow: 0 0 0 100vmax white;
-  clip-path: inset(0 -100vmax);
+  clip-path: inset(-1px -100vmax);
 }
 
 .vertical-center {
