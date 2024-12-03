@@ -34,7 +34,7 @@ body {
 }
 
 body {
-  background: #f5f5f5;
+  background: whitesmoke;
   font-family: "Inter";
 }
 
@@ -203,7 +203,7 @@ input.search-bar {
   }
 
   a {
-    color: rgba(0, 67, 153, 0.9) !important;
+    color: var(--link-color) !important;
     text-decoration: none !important;
   }
 
@@ -652,14 +652,14 @@ input[type="range"]:focus::-moz-range-thumb {
 
 .nav-tabs {
   .nav-link.active {
-    border-bottom: 2px solid var(--brand-color) !important;
+    border-bottom: 3px solid var(--brand-color) !important;
   }
 
   .nav-link {
     padding-left: 8px !important;
     padding-right: 8px !important;
     &:hover {
-      border-bottom: 2px solid var(--brand-color) !important;
+      border-bottom: 3px solid var(--brand-color) !important;
     }
   }
 }
