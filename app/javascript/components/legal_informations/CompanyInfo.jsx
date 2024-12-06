@@ -72,16 +72,22 @@ export default function CompanyInformation() {
 
   return (
     <>
-      <div className="vertical-center wide-white">
+      <Row className="wide-white">
+        <Col lg={10}>
           <div id="homepage-hero">
             <h1 className="my-4"> {t('legal_informations.company_information')} </h1>
           </div>
-          <MarkdownViewer fileName="company.md" />
+        </Col>
+      </Row>
+      <Row>
+        <Col className="lg-content">
+        <MarkdownViewer fileName="company.md" />
           <a href="/" className="text-link fw-bolder">
             <ArrowLeftIcon className="hi-s ms-2" />
             {t('return_home')}
           </a>
-      </div>
+        </Col>
+      </Row>
     </>
   );
 }

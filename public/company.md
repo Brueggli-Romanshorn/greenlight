@@ -1,4 +1,4 @@
-## BRUEGGLI
+## **BRÜGGLI**
 Hofstrasse 5  
 CH-8590 Romanshorn
 
