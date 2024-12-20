@@ -154,6 +154,7 @@ export default function Registration() {
           <input
             className="form-control"
             placeholder={t('admin.site_settings.registration.enter_allowed_domains_rule')}
+            defaultValue={siteSettings?.AllowedDomains}
           />
           <Button
             variant="brand"
