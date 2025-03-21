@@ -18,16 +18,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Stack } from 'react-bootstrap';
 import useUpdateSiteSetting from '../../../hooks/mutations/admin/site_settings/useUpdateSiteSetting';
+import EditModal from '../../shared_components/modals/EditModal';
 
 export default function SettingsRow({
-  name, title, description, value,
+  name, title, description, value, edit
 }) {
   const updateSiteSetting = useUpdateSiteSetting(name);
 
   return (
     <Stack direction="horizontal">
       <Stack>
-        <strong> {title} </strong>
+        <Stack direction='horizontal'>
+          <strong> { title } </strong>
+          { (edit)
+          && (
+            <EditModal title={ title } name={ edit } />
+          )}
+        </Stack>
         {description}
       </Stack>
       <div className="form-switch">

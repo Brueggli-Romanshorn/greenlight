@@ -807,3 +807,10 @@ input[type="range"]:focus::-moz-range-thumb {
     min-height: 20rem;
   }
 }
+
+.text-editor {
+  min-height: 480px;
+  overflow-y: scroll;
+  height: calc(80vh - $header-height - $header-height - $footer-height);
+  margin-bottom: 14px;
+}

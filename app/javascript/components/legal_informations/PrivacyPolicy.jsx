@@ -22,7 +22,8 @@ import { Navigate } from 'react-router-dom';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 import { toast } from 'react-toastify';
 import useEnv from '../../hooks/queries/env/useEnv';
-import MarkdownViewer from '../shared_components/utilities/MarkdownViewer';
+//import MarkdownViewer from '../shared_components/utilities/MarkdownViewer';
+import RichTextViewer from '../shared_components/utilities/RichTextViewer';
 import useSiteSetting from '../../hooks/queries/site_settings/useSiteSetting';
 
 export default function PrivacyPolicy() {
@@ -30,7 +31,8 @@ export default function PrivacyPolicy() {
   const [searchParams, setSearchParams] = useSearchParams();
   const error = searchParams.get('error');
   const { data: env } = useEnv();
-  const { data: privacy, isLoading } = useSiteSetting(['PrivacyPolicy']);
+  const { data: privacy, isLoading: isBoolanLoading } = useSiteSetting(['PrivacyPolicy']);
+  const { data: termsContent, isLoading: isLoadingContent } = useSiteSetting(['PrivacyText']);
 
   useEffect(() => {
     switch (error) {
@@ -70,11 +72,12 @@ export default function PrivacyPolicy() {
     [searchParams, env],
   );
 
-  if (isLoading) return null;
+  if (isBoolanLoading) return null;
 
   if (privacy === false){
     return <Navigate to="/404" />;
   }
+  if(isLoadingContent) return null;
 
   return (
     <>
@@ -84,7 +87,7 @@ export default function PrivacyPolicy() {
             <h2>{t('legal_informations.privacy_policy')}</h2>
           </Card.Header>
           <Card.Body>
-             <Card.Text><MarkdownViewer fileName="privacy.md" /></Card.Text>
+             <Card.Text><RichTextViewer richTextData={ JSON.parse(termsContent) } /></Card.Text>
           </Card.Body>
         </Card>
         <a href="/" className="text-link fw-bolder">

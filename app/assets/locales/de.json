@@ -295,7 +295,8 @@
         "change_url": "URL ändern",
         "set_text": "Text eingeben",
         "clear_banner": "Banner entfernen",
-        "enter_link": "Link eingeben"
+        "enter_link": "Link eingeben",
+        "create_link": "Link erstellen"
       },
       "settings": {
         "settings": "Einstellungen",

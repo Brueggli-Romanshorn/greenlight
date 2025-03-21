@@ -15,14 +15,14 @@
 // with Greenlight; if not, see <http://www.gnu.org/licenses/>.
 
 import React, { useEffect } from 'react';
-import {
-  Col, Row,
-} from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Navigate } from 'react-router-dom';
+import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 import { toast } from 'react-toastify';
 import useEnv from '../../hooks/queries/env/useEnv';
+import RichTextViewer from '../shared_components/utilities/RichTextViewer';
 import useSiteSetting from '../../hooks/queries/site_settings/useSiteSetting';
 
 export default function Terms() {
@@ -30,7 +30,8 @@ export default function Terms() {
   const [searchParams, setSearchParams] = useSearchParams();
   const error = searchParams.get('error');
   const { data: env } = useEnv();
-  const { data: terms, isLoading } = useSiteSetting(['Terms']);
+  const { data: SiteEneabled, isLoading: isBoolanLoading  } = useSiteSetting(['Terms']);
+  const { data: termsContent, isLoading: isLoadingContent } = useSiteSetting(['TermsText']);
 
   useEffect(() => {
     switch (error) {
@@ -70,22 +71,29 @@ export default function Terms() {
     [searchParams, env],
   );
 
-  if (isLoading) return null;
-
-  if (terms === false){
+  if (isBoolanLoading) return null;
+  if (SiteEneabled === false){
     return <Navigate to="/404" />;
   }
+  if(isLoadingContent) return null;
+  
 
   return (
     <>
       <Row className="wide-white">
         <Col lg={10}>
           <div id="homepage-hero">
-            <h2 className="my-4"> {t('legal_informations.terms')} </h2>
-            <p className="text-muted fs-5">
-              Lorem Ipsum <br/><br/><br/><br/><br/><br/>
-            </p>
+            <h1 className="my-4"> {t('legal_informations.terms')} </h1>
+            <RichTextViewer richTextData={ JSON.parse(termsContent) } />
           </div>
+        </Col>
+      </Row>
+      <Row>
+        <Col className="lg-content">
+            <a href="/" className="text-link fw-bolder">
+              <ArrowLeftIcon className="hi-s ms-2" />
+              {t('return_home')}
+            </a>
         </Col>
       </Row>
     </>

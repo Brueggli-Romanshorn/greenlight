@@ -75,7 +75,7 @@ export default function TextForm({ id, value, mutation: useUpdateSiteSettingsAPI
         aria-describedby={`${id}-submit-btn`}
         type="text"
         as="textarea"
-        rows={3}
+        rows={1}
         noLabel
       />
       <Button

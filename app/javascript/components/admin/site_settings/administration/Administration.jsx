@@ -30,24 +30,26 @@ export default function Administration() {
   return (
     <>
       <SettingsRow
-        name="Terms"
-        title={t('admin.site_settings.administration.terms')}
-        description={(
-          <p className="text-muted">
-            { t('admin.site_settings.administration.en_disable_terms_link') }
-          </p>
-      )}
-        value={siteSettings?.Terms}
-      />
-      <SettingsRow
         name="PrivacyPolicy"
         title={t('admin.site_settings.administration.privacy')}
+        edit="PrivacyText"
         description={(
           <p className="text-muted">
             { t('admin.site_settings.administration.en_disable_privacy_link') }
           </p>
       )}
         value={siteSettings?.PrivacyPolicy}
+      />
+      <SettingsRow
+        name="Terms"
+        title={t('admin.site_settings.administration.terms')}
+        edit="TermsText"
+        description={(
+          <p className="text-muted">
+            { t('admin.site_settings.administration.en_disable_terms_link') }
+          </p>
+      )}
+        value={siteSettings?.Terms}
       />
       <Row>
         <strong> { t('admin.site_settings.administration.helpcenter') } </strong>
