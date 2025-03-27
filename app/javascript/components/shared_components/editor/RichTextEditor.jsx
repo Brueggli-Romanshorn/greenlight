@@ -2,7 +2,7 @@ import React, { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next';
 import { isKeyHotkey } from 'is-hotkey'
 import { Editable, withReact, Slate, useSelected } from 'slate-react'
-import { createEditor, Range } from 'slate'
+import { createEditor, Range, Transforms } from 'slate'
 import { withHistory } from 'slate-history'
 import { withInlines } from './EditorControl'
 import Toolbar from './toolbar/Toolbar'
