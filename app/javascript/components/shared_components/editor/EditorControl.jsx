@@ -3,12 +3,14 @@ import isUrl from 'is-url'
 const LIST_TYPES = ['numbered-list', 'bulleted-list']
 
 export const withInlines = editor => {
-  const { insertData, insertText, isInline, isSelectable } =
+  const { insertData, insertText, isInline, isElementReadOnly, isSelectable } =
     editor
   editor.isInline = element =>
-    element.type === 'link' || isInline(element)
+    ['link', 'button', 'badge'].includes(element.type) || isInline(element)
+  editor.isElementReadOnly = element =>
+    element.type === 'badge' || isElementReadOnly(element)
   editor.isSelectable = element =>
-    element.type === 'link' && isSelectable(element)
+    element.type !== 'badge' && isSelectable(element)
   editor.insertText = text => {
     if (text && isUrl(text)) {
       wrapLink(editor, text)
