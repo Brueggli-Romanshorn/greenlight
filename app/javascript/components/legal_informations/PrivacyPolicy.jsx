@@ -15,7 +15,7 @@
 // with Greenlight; if not, see <http://www.gnu.org/licenses/>.
 
 import React, { useEffect } from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, Row, Col } from 'react-bootstrap';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Navigate } from 'react-router-dom';
@@ -80,21 +80,21 @@ export default function PrivacyPolicy() {
   if(isLoadingContent) return null;
 
   return (
-    <>
-      <div className="vertical-center">
+    <Row>
+      <Col>
         <Card className="lg-content">
           <Card.Header>
             <h2>{t('legal_informations.privacy_policy')}</h2>
           </Card.Header>
           <Card.Body>
-             <Card.Text><RichTextViewer richTextData={ JSON.parse(termsContent) } /></Card.Text>
+              <Card.Text><RichTextViewer richTextData={ JSON.parse(termsContent) } /></Card.Text>
           </Card.Body>
         </Card>
         <a href="/" className="text-link fw-bolder">
           <ArrowLeftIcon className="hi-s ms-2" />
           {t('return_home')}
         </a>
-      </div>
-    </>
+      </Col>
+    </Row>
   );
 }
