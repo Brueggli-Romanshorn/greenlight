@@ -20,12 +20,21 @@ import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import Form from '../../../shared_components/forms/Form';
 import RichTextEditor from '../../../shared_components/editor/RichTextEditor';
+import { validateJson } from '../../../../helpers/JsonValidater'
+
 
 export default function EditorForm({ id, data, handleClose, mutation: useUpdateSiteSettingsAPI }) {
   const updateContent = useUpdateSiteSettingsAPI();
   const { t } = useTranslation();
 
-  const [value, setValue] = useState(JSON.parse(data));
+  if (validateJson(data)) {
+    RichTextJSON = data;
+  }
+  else {
+    RichTextJSON = '[{"type":"paragraph","children":[{"text":"'+ data +'"}]}]';
+  }
+  const [value, setValue] = useState(JSON.parse(RichTextJSON));
+  
 
   const handleUpdate = () => { 
     const formText = {

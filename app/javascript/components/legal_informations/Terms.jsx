@@ -84,7 +84,7 @@ export default function Terms() {
         <Col lg={10}>
           <div id="homepage-hero">
             <h1 className="my-4"> {t('legal_informations.terms')} </h1>
-            <RichTextViewer richTextData={ JSON.parse(termsContent) } />
+            <RichTextViewer richTextData={ termsContent } />
           </div>
         </Col>
       </Row>

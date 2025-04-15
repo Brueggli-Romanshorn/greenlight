@@ -87,7 +87,7 @@ export default function PrivacyPolicy() {
             <h2>{t('legal_informations.privacy_policy')}</h2>
           </Card.Header>
           <Card.Body>
-              <Card.Text><RichTextViewer richTextData={ JSON.parse(termsContent) } /></Card.Text>
+              <Card.Text><RichTextViewer richTextData={ termsContent } /></Card.Text>
           </Card.Body>
         </Card>
         <a href="/" className="text-link fw-bolder">
