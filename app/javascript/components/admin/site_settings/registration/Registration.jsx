@@ -59,8 +59,7 @@ export default function Registration() {
       throw new Error('Network response was not ok ' + response.statusText);
     }
     const data = await response.json();
-    console.log(data);
-    setInputValue(data.data); // here should the new value be assigned to the input elment
+    setInputValue(data.data);
     } catch (error) {
       console.error('Error fetching data:', error.message);
     } finally {
@@ -71,7 +70,6 @@ export default function Registration() {
   const handleUpdate = async (e) => {
     try {
       const value = e.target.previousSibling.value;
-      console.log('Updating role mapping with value:', value);
       await updateRoleMapping.mutateAsync({ value });
       await refetchData();
     } catch (error) {
