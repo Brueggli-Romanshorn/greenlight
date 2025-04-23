@@ -14,63 +14,18 @@
 // You should have received a copy of the GNU Lesser General Public License along
 // with Greenlight; if not, see <http://www.gnu.org/licenses/>.
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, Row, Col } from 'react-bootstrap';
-import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Navigate } from 'react-router-dom';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
-import { toast } from 'react-toastify';
-import useEnv from '../../hooks/queries/env/useEnv';
-//import MarkdownViewer from '../shared_components/utilities/MarkdownViewer';
 import RichTextViewer from '../shared_components/utilities/RichTextViewer';
 import useSiteSetting from '../../hooks/queries/site_settings/useSiteSetting';
 
 export default function PrivacyPolicy() {
   const { t } = useTranslation();
-  const [searchParams, setSearchParams] = useSearchParams();
-  const error = searchParams.get('error');
-  const { data: env } = useEnv();
   const { data: privacy, isLoading: isBoolanLoading } = useSiteSetting(['PrivacyPolicy']);
   const { data: termsContent, isLoading: isLoadingContent } = useSiteSetting(['PrivacyText']);
-
-  useEffect(() => {
-    switch (error) {
-      case 'InviteInvalid':
-        toast.error(t('toast.error.users.invalid_invite'));
-        break;
-      case 'SignupError':
-        toast.error(t('toast.error.users.signup_error'));
-        break;
-      default:
-    }
-    if (error) { setSearchParams(searchParams.delete('error')); }
-  }, [error]);
-
-  // useEffect for inviteToken
-  useEffect(
-    () => {
-      const inviteToken = searchParams.get('inviteToken');
-
-      // Environment settings not loaded
-      if (!env) {
-        return;
-      }
-
-      if (inviteToken && env?.EXTERNAL_AUTH) {
-        const signInForm = document.querySelector('form[action="/auth/openid_connect"]');
-        signInForm.submit();
-      } else if (inviteToken && !env?.EXTERNAL_AUTH) {
-        const buttons = document.querySelectorAll('.btn');
-        buttons.forEach((button) => {
-          if (button.textContent === 'Sign Up') {
-            button.click();
-          }
-        });
-      }
-    },
-    [searchParams, env],
-  );
 
   if (isBoolanLoading) return null;
 
@@ -90,9 +45,9 @@ export default function PrivacyPolicy() {
               <Card.Text><RichTextViewer richTextData={ termsContent } /></Card.Text>
           </Card.Body>
         </Card>
-        <a href="/" className="text-link fw-bolder">
+        <a href="javascript:history.back()" className="text-link fw-bolder">
           <ArrowLeftIcon className="hi-s ms-2" />
-          {t('return_home')}
+          {t('back')}
         </a>
       </Col>
     </Row>

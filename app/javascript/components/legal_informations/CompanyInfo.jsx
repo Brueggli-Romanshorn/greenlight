@@ -14,59 +14,14 @@
 // You should have received a copy of the GNU Lesser General Public License along
 // with Greenlight; if not, see <http://www.gnu.org/licenses/>.
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import {  Col, Row } from 'react-bootstrap';
-import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
-import { toast } from 'react-toastify';
-import useEnv from '../../hooks/queries/env/useEnv';
 import MarkdownViewer from '../shared_components/utilities/MarkdownViewer';
 
 export default function CompanyInformation() {
   const { t } = useTranslation();
-  const [searchParams, setSearchParams] = useSearchParams();
-  const error = searchParams.get('error');
-  // const { data: recordValue } = useRoomConfigValue('record');
-  const { data: env } = useEnv();
-
-  useEffect(() => {
-    switch (error) {
-      case 'InviteInvalid':
-        toast.error(t('toast.error.users.invalid_invite'));
-        break;
-      case 'SignupError':
-        toast.error(t('toast.error.users.signup_error'));
-        break;
-      default:
-    }
-    if (error) { setSearchParams(searchParams.delete('error')); }
-  }, [error]);
-
-  // useEffect for inviteToken
-  useEffect(
-    () => {
-      const inviteToken = searchParams.get('inviteToken');
-
-      // Environment settings not loaded
-      if (!env) {
-        return;
-      }
-
-      if (inviteToken && env?.EXTERNAL_AUTH) {
-        const signInForm = document.querySelector('form[action="/auth/openid_connect"]');
-        signInForm.submit();
-      } else if (inviteToken && !env?.EXTERNAL_AUTH) {
-        const buttons = document.querySelectorAll('.btn');
-        buttons.forEach((button) => {
-          if (button.textContent === 'Sign Up') {
-            button.click();
-          }
-        });
-      }
-    },
-    [searchParams, env],
-  );
 
   return (
     <>
@@ -77,12 +32,16 @@ export default function CompanyInformation() {
           </div>
         </Col>
       </Row>
-      <Row>
+      <Row className="wide-white">
         <Col className="lg-content">
-        <MarkdownViewer fileName="company.md" />
-          <a href="/" className="text-link fw-bolder">
+          <MarkdownViewer fileName="company.md" />
+        </Col>
+      </Row>
+      <Row className="py-3">
+        <Col>
+          <a href="javascript:history.back()" className="text-link fw-bolder">
             <ArrowLeftIcon className="hi-s ms-2" />
-            {t('return_home')}
+            {t('back')}
           </a>
         </Col>
       </Row>
