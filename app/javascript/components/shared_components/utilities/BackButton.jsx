@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeftIcon } from '@heroicons/react/24/outline';
+import { ArrowLeftCircleIcon } from '@heroicons/react/24/outline';
 import { useTranslation } from 'react-i18next';
 import { Stack } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
@@ -11,8 +11,8 @@ export default function BackButton() {
   const handleClick = () => { 
     const previousUrl = document.referrer;
     const currentDomain = window.location.origin;
-    
-    if (previousUrl && previousUrl.startsWith(currentDomain)) {
+
+    if (previousUrl && previousUrl.startsWith(currentDomain) && window.history.length > 1) {
       navigate(-1);
     } else {
       navigate("/");
@@ -26,8 +26,7 @@ export default function BackButton() {
       aria-hidden="true"
       onClick={handleClick}
     >
-      <ArrowLeftIcon className="hi-s ms-2" />
-      {t('back')}
+      <ArrowLeftCircleIcon className="hi-s ms-2" /> {t('back')}
     </Stack>
   );
 }
