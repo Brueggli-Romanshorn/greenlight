@@ -17,8 +17,8 @@
 import React from 'react';
 import {  Col, Row } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
-import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 import MarkdownViewer from '../shared_components/utilities/MarkdownViewer';
+import BackButton from '../shared_components/utilities/BackButton';
 
 export default function CompanyInformation() {
   const { t } = useTranslation();
@@ -39,10 +39,7 @@ export default function CompanyInformation() {
       </Row>
       <Row className="py-3">
         <Col>
-          <a href="javascript:history.back()" className="text-link fw-bolder">
-            <ArrowLeftIcon className="hi-s ms-2" />
-            {t('back')}
-          </a>
+          <BackButton />
         </Col>
       </Row>
     </>

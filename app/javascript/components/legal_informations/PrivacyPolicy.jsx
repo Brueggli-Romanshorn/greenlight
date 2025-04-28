@@ -14,13 +14,13 @@
 // You should have received a copy of the GNU Lesser General Public License along
 // with Greenlight; if not, see <http://www.gnu.org/licenses/>.
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Card, Row, Col } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { Navigate } from 'react-router-dom';
-import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 import RichTextViewer from '../shared_components/utilities/RichTextViewer';
 import useSiteSetting from '../../hooks/queries/site_settings/useSiteSetting';
+import BackButton from '../shared_components/utilities/BackButton';
 
 export default function PrivacyPolicy() {
   const { t } = useTranslation();
@@ -45,10 +45,7 @@ export default function PrivacyPolicy() {
               <Card.Text><RichTextViewer richTextData={ termsContent } /></Card.Text>
           </Card.Body>
         </Card>
-        <a href="javascript:history.back()" className="text-link fw-bolder">
-          <ArrowLeftIcon className="hi-s ms-2" />
-          {t('back')}
-        </a>
+        <BackButton />
       </Col>
     </Row>
   );
