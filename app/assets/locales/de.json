@@ -50,8 +50,7 @@
   "legal_informations": {
     "terms": "Nutzungsbedingungen",
     "privacy_policy": "Datenschutzerklärung",
-    "company_information": "Impressum",
-    "company_name": "Brüggli"
+    "imprint": "Impressum"
   },
   "authentication": {
     "sign_in": "Anmelden",

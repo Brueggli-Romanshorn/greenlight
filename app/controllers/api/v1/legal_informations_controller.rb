@@ -30,7 +30,7 @@ module Api
         render_data status: :ok
       end
 
-      def company_info
+      def imprint
         render_data status: :ok
       end
     end

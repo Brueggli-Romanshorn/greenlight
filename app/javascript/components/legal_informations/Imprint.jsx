@@ -20,7 +20,7 @@ import { useTranslation } from 'react-i18next';
 import MarkdownViewer from '../shared_components/utilities/MarkdownViewer';
 import BackButton from '../shared_components/utilities/BackButton';
 
-export default function CompanyInformation() {
+export default function Imprint() {
   const { t } = useTranslation();
 
   return (
@@ -28,13 +28,13 @@ export default function CompanyInformation() {
       <Row className="wide-white">
         <Col lg={10}>
           <div id="homepage-hero">
-            <h1 className="my-4"> {t('legal_informations.company_information')} </h1>
+            <h1 className="my-4"> {t('legal_informations.imprint')} </h1>
           </div>
         </Col>
       </Row>
       <Row className="wide-white">
         <Col className="lg-content">
-          <MarkdownViewer fileName="company.md" />
+          <MarkdownViewer fileName="imprint.md" />
         </Col>
       </Row>
       <Row className="py-3">

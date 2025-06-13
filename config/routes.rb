@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get '/terms', to: 'legal_informations#terms'
       get '/privacy_policy', to: 'legal_informations#privacy_policy'
-      get '/company_info', to: 'legal_informations#company_info'
+      get '/imprint', to: 'legal_informations#imprint'
       resources :sessions, only: %i[index create] do
         collection do
           delete 'signout', to: 'sessions#destroy'
