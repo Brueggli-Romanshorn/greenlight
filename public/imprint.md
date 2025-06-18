@@ -1,7 +1,6 @@
 ## **BRÜGGLI**
 Hofstrasse 5  
-CH-8590 Romanshorn  
-www.brueggli.ch
+CH-8590 Romanshorn
 
 Telefon +41 71 466 94 94  
 Telefax +41 71 466 94 95
