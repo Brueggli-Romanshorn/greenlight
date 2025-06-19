@@ -31,7 +31,7 @@ export default function Administration() {
     <>
       <SettingsRow
         name="PrivacyPolicy"
-        title={t('admin.site_settings.administration.privacy')}
+        title={t('admin.site_settings.administration.privacy_policy')}
         edit="PrivacyText"
         description={(
           <p className="text-muted">
