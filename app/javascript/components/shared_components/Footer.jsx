@@ -31,7 +31,6 @@ export default function Footer() {
   return (
     <footer id="footer" className="footer text-center">
       <Container id="footer-container" className="py-3">
-        { !isAuthenticated && <a className="ps-3" href="/imprint">{ t('legal_informations.imprint') }</a> }
         { (isAuthenticated && links?.HelpCenter)
           && (
             <a className="ps-3" href={links?.HelpCenter} target="_blank" rel="noreferrer">
@@ -50,6 +49,7 @@ export default function Footer() {
               { t('admin.site_settings.administration.privacy') }
             </a>
           )}
+        { !isAuthenticated && <a className="ps-3" href="/imprint">{ t('legal_informations.imprint') }</a> }
       </Container>
     </footer>
   );
