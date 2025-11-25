@@ -25,7 +25,7 @@ import useSiteSettings from '../../../../hooks/queries/admin/site_settings/useSi
 
 export default function Administration() {
   const { t } = useTranslation();
-  const { data: siteSettings } = useSiteSettings(['Terms', 'PrivacyPolicy', 'HelpCenter', 'Maintenance']);
+  const { data: siteSettings } = useSiteSettings(['Terms', 'Imprint','PrivacyPolicy', 'HelpCenter', 'Maintenance']);
 
   return (
     <>
@@ -50,6 +50,17 @@ export default function Administration() {
           </p>
       )}
         value={siteSettings?.Terms}
+      />
+      <SettingsRow
+        name="Imprint"
+        title={t('admin.site_settings.administration.imprint')}
+        edit="ImprintText"
+        description={(
+          <p className="text-muted">
+            { t('admin.site_settings.administration.en_disable_imprint_link') }
+          </p>
+      )}
+        value={siteSettings?.Imprint}
       />
       <Row>
         <strong> { t('admin.site_settings.administration.helpcenter') } </strong>

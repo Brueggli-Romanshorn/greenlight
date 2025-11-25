@@ -4,7 +4,7 @@ import { validateJson } from '../../../helpers/JsonValidater'
 //import DOMPurify from 'dompurify';
 
 
-export default function RichTextViewer( { richTextData } ) {
+export default function RichTextViewer( { richTextData, className } ) {
     //console.log( richTextData );
     
     const rawHTML = validateJson(richTextData) ? serialize(JSON.parse(richTextData)) : '<p>' + richTextData + '</p>'
@@ -13,7 +13,7 @@ export default function RichTextViewer( { richTextData } ) {
     //const sanatizedHTML = DOMPurify.sanitize(rawHTML);
 
     return (
-      <div dangerouslySetInnerHTML={{ __html: rawHTML }} />
+      <div class={ className } dangerouslySetInnerHTML={{ __html: rawHTML }} />
     );
 
 }

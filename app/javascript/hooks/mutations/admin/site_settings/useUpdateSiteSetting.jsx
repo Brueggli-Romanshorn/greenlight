@@ -51,14 +51,17 @@ export default function useUpdateSiteSetting(name) {
       case 'BrandingImage':
         toast.success(t('toast.success.site_settings.brand_image_updated'));
         break;
-      case 'PrivacyPolicy':
+      case 'PrivacyText':
         toast.success(t('toast.success.site_settings.privacy_policy_updated'));
+        break;
+      case 'TermsText':
+        toast.success(t('toast.success.site_settings.terms_of_service_updated'));
+        break;
+      case 'ImprintText':
+        toast.success(t('toast.success.site_settings.imprint_updated'));
         break;
       case 'HelpCenter':
         toast.success(t('toast.success.site_settings.helpcenter_updated'));
-        break;
-      case 'TermsOfService':
-        toast.success(t('toast.success.site_settings.terms_of_service_updated'));
         break;
       case 'Maintenance':
         toast.success(t('toast.success.site_settings.maintenance_updated'));

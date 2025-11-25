@@ -20,36 +20,37 @@ import { Container } from 'react-bootstrap';
 import useEnv from '../../hooks/queries/env/useEnv';
 import useSiteSetting from '../../hooks/queries/site_settings/useSiteSetting';
 import { useAuth } from '../../contexts/auth/AuthProvider';
+import DisplayModal from './modals/DisplayModal';
+import ButtonLink from './utilities/ButtonLink';
 
 export default function Footer() {
   const { t } = useTranslation();
   const { data: env } = useEnv();
-  const { data: links } = useSiteSetting(['Terms', 'PrivacyPolicy', 'HelpCenter']);
+  const { data: links } = useSiteSetting(['Terms', 'PrivacyPolicy', 'HelpCenter', 'Imprint']);
   const currentUser = useAuth();
   const isAuthenticated = currentUser?.signed_in;
 
   return (
     <footer id="footer" className="footer text-center">
       <Container id="footer-container" className="py-3">
-        { (isAuthenticated && links?.HelpCenter)
+        { links?.PrivacyPolicy
           && (
-            <a className="ps-3" href={links?.HelpCenter} target="_blank" rel="noreferrer">
-                { t('help_center') }
-            </a> 
+            <DisplayModal title={ t('admin.site_settings.administration.privacy') } name="PrivacyText" />
           )}
         { links?.Terms
           && (
-            <a className="ps-3" href="/terms">
-              { t('admin.site_settings.administration.terms') }
-            </a>
+            <DisplayModal title={ t('admin.site_settings.administration.terms') } name="TermsText" />
           )}
-        { links?.PrivacyPolicy
+        { !isAuthenticated && links?.Imprint
           && (
-            <a className="ps-3" href="/privacy_policy">
-              { t('admin.site_settings.administration.privacy') }
-            </a>
+            <DisplayModal title={ t('legal_informations.imprint') } name="ImprintText" />
           )}
-        { !isAuthenticated && <a className="ps-3" href="/imprint">{ t('legal_informations.imprint') }</a> }
+        { (isAuthenticated && links?.HelpCenter)
+          && (
+            <a className="d-inline-block cursor-pointer ps-3 btn btn-link" href={links?.HelpCenter} target="_blank" rel="noreferrer">
+                { t('help_center') }
+            </a> 
+          )}
       </Container>
     </footer>
   );

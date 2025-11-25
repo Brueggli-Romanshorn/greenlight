@@ -25,13 +25,18 @@ const NodeToHtml = (node) => {
 
   switch (node.type) {
     case 'paragraph':
-      return `<p>${children}</p>`;
+      if (children == " ") {
+        return `<br/>`;
+      }
+      else {
+        return `<p>${children}</p>`;
+      }
     case 'link':
       return `<a target="_blank" href="${node.url}" >${children}</a>`;
     case 'heading-one':
-      return `<h3>${children}</h3>`;
-    case 'heading-two':
       return `<h4>${children}</h4>`;
+    case 'heading-two':
+      return `<h5>${children}</h5>`;
     case 'numbered-list':
         return `<ol>${children}</ol>`;
     case 'bulleted-list':

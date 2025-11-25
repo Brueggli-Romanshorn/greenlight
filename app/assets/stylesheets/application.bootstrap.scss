@@ -203,8 +203,12 @@ input.search-bar {
   }
 
   a {
-    color: var(--brand-color) !important;
+    //color: var(--brand-color) !important;
     text-decoration: none !important;
+  }
+
+  .btn {
+    min-width: auto;
   }
 
   @include media-breakpoint-up(sm) {
@@ -305,7 +309,8 @@ input.search-bar {
   --brand-color: '';
   --brand-color-light: '';
   --control-border-color: #b7b7b7;
-  --link-color: #2d69b5;
+  --link-color: #0d6dbb;
+  --link-hover-color: #124d7c;
 }
 
 .text-brand {
@@ -429,10 +434,10 @@ input.search-bar {
 .btn-link {
   background-color: transparent;
   border: 0;
-  color: #0d6efd;
+  color: var(--link-color);
 
   &:hover {
-    color: #0a58ca !important;
+    color: var(--link-hover-color) !important;
     text-decoration: none !important;
   }
 
