@@ -78,7 +78,7 @@ export default function App() {
   }, [autoSignIn, env, formElement]);
 
   // Pages that do not need a header: SignIn, SignUp and JoinMeeting (if the user is not signed in)
-  const homePage = location.pathname === '/' || location.pathname === '/terms' || location.pathname === '/privacy_policy';
+  const homePage = location.pathname === '/' || location.pathname === '/terms';
   const pageHeight = (homePage || currentUser.signed_in) ? 'regular-height' : 'no-header-height';
 
   // i18n

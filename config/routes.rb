@@ -32,7 +32,6 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get '/terms', to: 'legal_informations#terms'
-      get '/privacy_policy', to: 'legal_informations#privacy_policy'
       get '/imprint', to: 'legal_informations#imprint'
       resources :sessions, only: %i[index create] do
         collection do

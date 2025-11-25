@@ -31,7 +31,6 @@ import Room from './components/rooms/room/Room';
 import Rooms from './components/rooms/Rooms';
 import HomePage from './components/home/HomePage';
 import Terms from './components/legal_informations/Terms';
-import PrivacyPolicy from './components/legal_informations/PrivacyPolicy';
 import Imprint from './components/legal_informations/Imprint';
 import RoomJoin from './components/rooms/room/join/RoomJoin';
 import ForgetPassword from './components/users/password_management/ForgetPassword';
@@ -105,7 +104,6 @@ const router = createBrowserRouter(
       </Route>
 
       <Route path="/terms" element={<Terms />} />
-      <Route path="/privacy_policy" element={<PrivacyPolicy />} />
       <Route path="/imprint" element={<Imprint />} />
       <Route path="/rooms/:friendlyId/join" element={<RoomJoin />} />
       <Route path="/rooms/:friendlyId/public_recordings" element={<PublicRecordings />} />

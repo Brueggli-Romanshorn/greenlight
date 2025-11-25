@@ -39,12 +39,8 @@ export default function Imprint() {
         <Col lg={10}>
           <div id="homepage-hero">
             <h1 className="my-4"> {t('legal_informations.imprint')} </h1>
+            <RichTextViewer richTextData={ imprintContent } />
           </div>
-        </Col>
-      </Row>
-      <Row className="wide-white">
-        <Col className="lg-content">
-          <RichTextViewer richTextData={ imprintContent } />
         </Col>
       </Row>
       <Row className="py-3">

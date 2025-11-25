@@ -26,10 +26,6 @@ module Api
         render_data status: :ok
       end
 
-      def privacy_policy
-        render_data status: :ok
-      end
-
       def imprint
         render_data status: :ok
       end
