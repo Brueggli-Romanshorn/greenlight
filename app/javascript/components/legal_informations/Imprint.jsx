@@ -17,18 +17,18 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
+import { Navigate } from 'react-router-dom';
 import RichTextViewer from '../shared_components/utilities/RichTextViewer';
 import useSiteSetting from '../../hooks/queries/site_settings/useSiteSetting';
 import BackButton from '../shared_components/utilities/BackButton';
 
 export default function Imprint() {
   const { t } = useTranslation();
-  const { data: imprint, isLoading: isBoolanLoading } = useSiteSetting(['Imprint']);
+  const { data: SiteEneabled, isLoading: isBoolanLoading } = useSiteSetting(['Imprint']);
   const { data: imprintContent, isLoading: isLoadingContent } = useSiteSetting(['ImprintText']);
 
   if (isBoolanLoading) return null;
-  
-  if (imprint === false){
+  if (SiteEneabled === false){
     return <Navigate to="/404" />;
   }
   if(isLoadingContent) return null;
