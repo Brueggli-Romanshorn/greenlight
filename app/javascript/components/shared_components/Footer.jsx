@@ -35,15 +35,21 @@ export default function Footer() {
       <Container id="footer-container" className="py-3">
         { links?.PrivacyPolicy
           && (
-            <DisplayModal title={ t('admin.site_settings.administration.privacy') } name="PrivacyText" />
+            <DisplayModal title={ t('admin.site_settings.administration.privacy_policy') } name="PrivacyText">
+              { t('admin.site_settings.administration.privacy') }
+            </DisplayModal>
           )}
         { links?.Terms
           && (
-            <DisplayModal title={ t('admin.site_settings.administration.terms') } name="TermsText" />
+            <DisplayModal title={ t('admin.site_settings.administration.terms') } name="TermsText">
+              { t('admin.site_settings.administration.terms') }
+            </DisplayModal>
           )}
         { !isAuthenticated && links?.Imprint
           && (
-            <DisplayModal title={ t('legal_informations.imprint') } name="ImprintText" />
+            <DisplayModal title={ t('legal_informations.imprint') } name="ImprintText">
+              { t('legal_informations.imprint') }
+            </DisplayModal>
           )}
         { (isAuthenticated && links?.HelpCenter)
           && (

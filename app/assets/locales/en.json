@@ -48,8 +48,6 @@
     "enter_meeting_url_instruction": "Please enter the URL of your BigBlueButton meeting in the field below."
   },
   "legal_informations": {
-    "terms": "Terms & Conditions",
-    "privacy_policy": "Privacy Policy",
     "imprint": "Imprint"
   },
   "authentication": {
@@ -287,7 +285,7 @@
       "administration": {
         "administration": "Administration",
         "terms": "Terms & Conditions",
-        "privacy": "Privacy Notice",
+        "privacy": "Privacy",
         "imprint": "Imprint",
         "privacy_policy": "Privacy Notice",
         "en_disable_terms_link": "Enable or disable \"Terms & Conditions\".",

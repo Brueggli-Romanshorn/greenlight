@@ -72,4 +72,8 @@
     overflow-y: scroll;
     padding: 1vh var(--bs-card-cap-padding-x);
     max-height: calc(80vh);
+
+    h2, h3, h4, p {
+      margin-bottom: .75rem;
+    }
 }

@@ -21,7 +21,7 @@ import RichTextViewer from '../utilities/RichTextViewer';
 import { Card, Button } from 'react-bootstrap';
 import Modal from './Modal';
 
-export default function DisplayModal({ title, name }) {
+export default function DisplayModal({ children, title, name }) {
 
   const { data: textContent, isLoading } = useSiteSetting( name );
 
@@ -29,7 +29,7 @@ export default function DisplayModal({ title, name }) {
 
   return (
     <Modal
-      modalButton={ <Button className="d-inline-block cursor-pointer ps-3" variant="link" >{ title }</Button> }
+      modalButton={ <Button className="d-inline-block cursor-pointer ps-3" variant="link" >{ children }</Button> }
       title={ title }
       body={ <RichTextViewer className="lg-content" richTextData={ textContent } /> }
       size="lg"

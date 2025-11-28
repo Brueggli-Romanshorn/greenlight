@@ -48,8 +48,6 @@
     "enter_meeting_url_instruction": "Bitte geben Sie die URL Ihres BigBlueButton-Meetings in das unten stehende Feld ein."
   },
   "legal_informations": {
-    "terms": "Nutzungsbedingungen",
-    "privacy_policy": "Datenschutzerklärung",
     "imprint": "Impressum"
   },
   "authentication": {

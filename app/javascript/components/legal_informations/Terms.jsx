@@ -39,7 +39,7 @@ export default function Terms() {
       <Row className="wide-white">
         <Col lg={10}>
           <div id="homepage-hero">
-            <h1 className="my-4"> {t('legal_informations.terms')} </h1>
+            <h1 className="my-4"> {t('admin.site_settings.administration.terms')} </h1>
             <RichTextViewer richTextData={ termsContent } />
           </div>
         </Col>
