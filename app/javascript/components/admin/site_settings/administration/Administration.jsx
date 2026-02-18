@@ -25,7 +25,7 @@ import useSiteSettings from '../../../../hooks/queries/admin/site_settings/useSi
 
 export default function Administration() {
   const { t } = useTranslation();
-  const { data: siteSettings } = useSiteSettings(['Terms', 'Imprint','PrivacyPolicy', 'HelpCenter', 'Maintenance']);
+  const { data: siteSettings } = useSiteSettings(['Terms', 'Imprint','PrivacyPolicy', 'AccessibilityStatement', 'HelpCenter', 'Maintenance']);
 
   return (
     <>
@@ -62,6 +62,15 @@ export default function Administration() {
       )}
         value={siteSettings?.Imprint}
       />
+      <Row>
+        <strong> { t('admin.site_settings.administration.accessibility_statement') } </strong>
+        <p className="text-muted"> { t('admin.site_settings.administration.change_accessibility_statement_link') } </p>
+        <LinksForm
+          id="helpForm"
+          mutation={() => useUpdateSiteSetting('AccessibilityStatement')}
+          value={siteSettings?.AccessibilityStatement}
+        />
+      </Row>
       <Row>
         <strong> { t('admin.site_settings.administration.helpcenter') } </strong>
         <p className="text-muted"> { t('admin.site_settings.administration.change_helpcenter_link') } </p>

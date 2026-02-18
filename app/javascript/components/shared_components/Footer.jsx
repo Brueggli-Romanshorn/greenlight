@@ -26,7 +26,7 @@ import ButtonLink from './utilities/ButtonLink';
 export default function Footer() {
   const { t } = useTranslation();
   const { data: env } = useEnv();
-  const { data: links } = useSiteSetting(['Terms', 'PrivacyPolicy', 'HelpCenter', 'Imprint']);
+  const { data: links } = useSiteSetting(['Terms', 'PrivacyPolicy', 'HelpCenter', 'Imprint', 'AccessibilityStatement']);
   const currentUser = useAuth();
   const isAuthenticated = currentUser?.signed_in;
 
@@ -56,6 +56,12 @@ export default function Footer() {
             <a className="d-inline-block cursor-pointer ps-3 btn btn-link" href={links?.HelpCenter} target="_blank" rel="noreferrer">
                 { t('help_center') }
             </a> 
+          )}
+        { links?.AccessibilityStatement
+          && (
+            <a className="d-inline-block cursor-pointer ps-3 btn btn-link" href={links?.AccessibilityStatement} target="_blank" rel="noreferrer">
+              { t('admin.site_settings.administration.accessibility_statement') }
+            </a>
           )}
       </Container>
     </footer>
