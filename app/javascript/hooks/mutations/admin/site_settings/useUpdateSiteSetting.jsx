@@ -60,9 +60,6 @@ export default function useUpdateSiteSetting(name) {
       case 'ImprintText':
         toast.success(t('toast.success.site_settings.imprint_updated'));
         break;
-      case 'AccessibilityStatement':
-        toast.success(t('toast.success.site_settings.accessibility_updated'));
-        break;
       case 'HelpCenter':
         toast.success(t('toast.success.site_settings.helpcenter_updated'));
         break;
