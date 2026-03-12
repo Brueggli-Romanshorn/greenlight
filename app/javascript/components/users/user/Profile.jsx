@@ -39,7 +39,7 @@ export default function Profile() {
           <Row>
             <Col sm={3}>
               <div id="profile-sidebar">
-                <Nav variant="pills" className="flex-column">
+                <Nav variant="pills" className="fluid-orientation">
                   <Nav.Item>
                     <Nav.Link className="cursor-pointer text-muted" eventKey="first">
                       <UserIcon className="hi-s text-muted me-3 pb-1" />

@@ -202,7 +202,7 @@
   "admin": {
     "admin_panel": "Administration",
     "manage_users": {
-      "manage_users": "Nutzende verwalten",
+      "manage_users": "Benutzer",
       "active": "Aktiv",
       "approve": "Zulassen",
       "decline": "Ablehnen",
@@ -246,7 +246,7 @@
       }
     },
     "server_rooms": {
-      "server_rooms": "alle Räume",
+      "server_rooms": "Räume",
       "name": "Name",
       "owner": "Besitzer:in",
       "room_id": "Raum-ID",
@@ -264,12 +264,12 @@
       "empty_room_list_subtext": "Die Räume erscheinen hier, nachdem du deinen ersten Raum erstellt hast."
     },
     "server_recordings": {
-      "server_recordings": "alle Aufzeichnungen",
+      "server_recordings": "Aufnahmen",
       "latest_recordings": "alle Aufzeichnungen",
       "no_recordings_found": "Keine Aufzeichnungen gefunden."
     },
     "site_settings": {
-      "site_settings": "Grundeinstellungen",
+      "site_settings": "Seite",
       "customize_greenlight": "Greenlight anpassen",
       "appearance": {
         "appearance": "Darstellung",

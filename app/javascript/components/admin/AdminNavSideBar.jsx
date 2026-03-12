@@ -29,7 +29,7 @@ export default function AdminNavSideBar() {
   const location = useLocation();
 
   return (
-    <Nav variant="pills" className="flex-column">
+    <Nav variant="pills" className="fluid-orientation">
       {/* Todo: Use PermissionChecker */ }
       {(currentUser.permissions.ManageUsers === 'true') && (
       <Nav.Item>

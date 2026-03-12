@@ -44,7 +44,7 @@ export default function Roles() {
       <Card className="border-0 card-shadow">
         <Tab.Container activeKey="roles">
           <Row>
-            <Col className="pe-0" sm={3}>
+            <Col sm={3}>
               <div id="admin-sidebar">
                 <AdminNavSideBar />
               </div>

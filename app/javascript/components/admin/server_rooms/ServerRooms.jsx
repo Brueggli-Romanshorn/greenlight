@@ -49,7 +49,7 @@ export default function ServerRooms() {
       <Card className="border-0 card-shadow">
         <Tab.Container activeKey="server_rooms">
           <Row>
-            <Col className="pe-0" sm={3}>
+            <Col className="" sm={3}>
               <div id="admin-sidebar">
                 <AdminNavSideBar />
               </div>

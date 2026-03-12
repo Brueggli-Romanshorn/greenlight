@@ -42,7 +42,7 @@ export default function SiteSettings() {
       <Card className="border-0 card-shadow">
         <Tab.Container activeKey="site_settings">
           <Row>
-            <Col className="pe-0" sm={3}>
+            <Col sm={3}>
               <div id="admin-sidebar">
                 <AdminNavSideBar />
               </div>
