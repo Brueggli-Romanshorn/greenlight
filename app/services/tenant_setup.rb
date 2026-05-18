@@ -62,7 +62,8 @@ class TenantSetup
       { setting: Setting.find_by(name: 'Maintenance'), provider: @provider, value: '' },
       { setting: Setting.find_by(name: 'SessionTimeout'), provider: @provider, value: '1' },
       { setting: Setting.find_by(name: 'AllowedDomains'), value: '', provider: @provider },
-      { setting: Setting.find_by(name: 'SignInOnRoomJoin'), value: 'true', provider: @provider }
+      { setting: Setting.find_by(name: 'SignInOnRoomJoin'), value: 'true', provider: @provider },
+      { setting: Setting.find_by(name: 'AllowNameUpdate'), value: 'true', provider: @provider }
     ]
   end
 
