@@ -309,6 +309,8 @@
         "allow_users_to_share_rooms_description": "Wenn dies deaktiviert ist, dann wird der Knopf zum Teilen eines Raums von den Raumeinstellungen entfernt.",
         "allow_users_to_preupload_presentation": "Präsentationen können hochgeladen werden",
         "allow_users_to_preupload_presentation_description": "Nutzende können eine Präsentation im Voraus hochladen, die dann als Standard für diesen Raum genutzt wird.",
+        "notification_for_new_users": "Mail-Benachrichtigung für neue User-Registrierungen",
+        "notification_for_new_users_description": "Schaltet die die Admin-Benachrichtigung für neue Useranmeldungen ein/aus",
         "show_sign_in_on_room_join": "Zeige Login-Link wenn Raum betreten wird",
         "show_sign_in_on_room_join_description": "Wenn die Nutzer:in nicht eingeloggt ist wird ein Login-Link angezeigt",
         "default_visibility": "Standard-Sichtbarkeit der Aufnahmen",

@@ -25,7 +25,7 @@ import useEnv from '../../../../hooks/queries/env/useEnv';
 
 export default function Settings() {
   const { t } = useTranslation();
-  const { data: siteSettings, isLoading } = useSiteSettings(['ShareRooms', 'PreuploadPresentation', 'DefaultRecordingVisibility', 'SessionTimeout']);
+  const { data: siteSettings, isLoading } = useSiteSettings(['ShareRooms', 'PreuploadPresentation', 'DefaultRecordingVisibility', 'SessionTimeout', 'NewUserNotification']);
   const updateDefaultRecordingVisibility = useUpdateSiteSetting('DefaultRecordingVisibility');
   const updateSessionTimeout = useUpdateSiteSetting('SessionTimeout');
   const { data: env } = useEnv();
@@ -53,6 +53,16 @@ export default function Settings() {
           </p>
       )}
         value={siteSettings?.PreuploadPresentation}
+      />
+      <SettingsRow
+        name="NewUserNotification"
+        title={t('admin.site_settings.settings.notification_for_new_users')}
+        description={(
+          <p className="text-muted">
+            {t('admin.site_settings.settings.notification_for_new_users_description')} 
+          </p>
+      )}
+        value={siteSettings?.NewUserNotification}
       />
       { env?.EXTERNAL_AUTH
         && (
