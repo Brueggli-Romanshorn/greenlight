@@ -47,7 +47,7 @@ export default function RoomConfig() {
                 <AdminNavSideBar />
               </div>
             </Col>
-            <Col className="ps-0" sm={9}>
+            <Col sm={9}>
               <Tab.Content className="p-0">
                 <Container className="p-0">
                   <div className="p-4 border-bottom">

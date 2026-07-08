@@ -65,7 +65,7 @@ export default function Profile() {
               </div>
             </Col>
             <Col sm={9}>
-              <Tab.Content className="p-3 ps-0">
+              <Tab.Content className="p-3">
                 <Tab.Pane eventKey="first">
                   <AccountInfo user={currentUser} />
                 </Tab.Pane>

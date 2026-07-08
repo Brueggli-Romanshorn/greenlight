@@ -47,7 +47,7 @@ export default function SiteSettings() {
                 <AdminNavSideBar />
               </div>
             </Col>
-            <Col className="ps-0" sm={9}>
+            <Col sm={9}>
               <Tab.Content className="p-0">
                 <Container className="admin-table p-0">
                   <div className="ps-4 pe-4 pt-4">
