@@ -82,24 +82,24 @@
   flex-direction: column;
 }
 
-.nav-pills .nav-link {
-  display: flex;
+.nav-pills {
 
-  
-}
-
-/*@media (max-width: 995px)
-{
-  .nav-pills .nav-link {
-    padding: 0.25rem;
-    
-    .me-3 {
-    margin-right: 0.5rem !important;
-    }
+  .nav-item {
+    margin-bottom: 0.25rem;
   }
 
-  
-}*/
+  .nav-link {
+    display: flex;
+
+    &:hover {
+      color: rgba(33, 37, 41, 0.75);
+      background-color: var(--bs-tertiary-bg);
+    }
+    &:focus {
+      color: var(--bs-secoundary-color);
+    }
+  }
+}
 
 @media (max-width: 995px)
 {

@@ -35,7 +35,7 @@ export default function AdminNavSideBar() {
       <Nav.Item>
         <Nav.Link
           // Return active if the URL has /users/edit/ to accommodate the EditUser component
-          className={`cursor-pointer text-muted ${location?.pathname.includes('/users/edit/') && 'active'}`}
+          className={`cursor-pointer ${location?.pathname.includes('/users/edit/') && 'active'}`}
           as={Link}
           to="/admin/users"
           eventKey="users"
@@ -47,7 +47,7 @@ export default function AdminNavSideBar() {
       )}
       {(currentUser.permissions.ManageRooms === 'true') && (
         <Nav.Item>
-          <Nav.Link className="cursor-pointer text-muted" as={Link} to="/admin/server_rooms" eventKey="server_rooms">
+          <Nav.Link className="cursor-pointer" as={Link} to="/admin/server_rooms" eventKey="server_rooms">
             <ServerStackIcon className="hi-s me-3" />
             { t('admin.server_rooms.server_rooms') }
           </Nav.Link>
@@ -55,7 +55,7 @@ export default function AdminNavSideBar() {
       )}
       {(currentUser.permissions.ManageRecordings === 'true') && (
         <Nav.Item>
-          <Nav.Link className="cursor-pointer text-muted" as={Link} to="/admin/server_recordings" eventKey="server_recordings">
+          <Nav.Link className="cursor-pointer" as={Link} to="/admin/server_recordings" eventKey="server_recordings">
             <VideoCameraIcon className="hi-s me-3" />
             { t('admin.server_recordings.server_recordings') }
           </Nav.Link>
@@ -64,13 +64,13 @@ export default function AdminNavSideBar() {
       {(currentUser.permissions.ManageSiteSettings === 'true') && (
         <>
           <Nav.Item>
-            <Nav.Link className="cursor-pointer text-muted" as={Link} to="/admin/site_settings" eventKey="site_settings">
+            <Nav.Link className="cursor-pointer" as={Link} to="/admin/site_settings" eventKey="site_settings">
               <Cog8ToothIcon className="hi-s me-3" />
               { t('admin.site_settings.site_settings') }
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link className="cursor-pointer text-muted" as={Link} to="/admin/room_configuration" eventKey="room_configuration">
+            <Nav.Link className="cursor-pointer" as={Link} to="/admin/room_configuration" eventKey="room_configuration">
               <AdjustmentsVerticalIcon className="hi-s me-3" />
               { t('admin.room_configuration.room_configuration') }
             </Nav.Link>
@@ -79,7 +79,7 @@ export default function AdminNavSideBar() {
       )}
       {(currentUser.permissions.ManageRoles === 'true') && (
         <Nav.Item>
-          <Nav.Link className="cursor-pointer text-muted" as={Link} to="/admin/roles" eventKey="roles">
+          <Nav.Link className="cursor-pointer" as={Link} to="/admin/roles" eventKey="roles">
             <IdentificationIcon className="hi-s me-3" />
             { t('admin.roles.roles') }
           </Nav.Link>
@@ -87,7 +87,7 @@ export default function AdminNavSideBar() {
       )}
       {(currentUser.isSuperAdmin) && (
         <Nav.Item>
-          <Nav.Link className="cursor-pointer text-muted" as={Link} to="/admin/tenants" eventKey="tenants">
+          <Nav.Link className="cursor-pointer" as={Link} to="/admin/tenants" eventKey="tenants">
             <Square3Stack3DIcon className="hi-s me-3" />
             Manage Tenants
           </Nav.Link>
