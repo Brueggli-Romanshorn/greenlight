@@ -309,8 +309,8 @@ input.search-bar {
   --brand-color: '';
   --brand-color-light: '';
   --control-border-color: #b7b7b7;
-  --link-color: #0d6dbb;
-  --link-hover-color: #124d7c;
+  --link-color: #1464be;
+  --link-hover-color: #215a9b;
   --bs-nav-link-font-size: 1rem;
 }
 
@@ -665,7 +665,8 @@ input[type="range"]:focus::-moz-range-thumb {
     padding-left: 8px !important;
     padding-right: 8px !important;
     &:hover {
-      border-bottom: 3px solid var(--brand-color) !important;
+      color: var(--bs-secoundary-color);
+      background-color: var(--bs-tertiary-bg);
     }
   }
 }

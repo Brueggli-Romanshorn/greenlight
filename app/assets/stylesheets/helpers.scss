@@ -57,9 +57,9 @@
     transition: none;
     border: 0;
 
-    &.active, &:hover {
-      color: var(--brand-color);
-      border-bottom: 1.5px solid var(--brand-color) !important;
+    &.active {
+      background-color: transparent !important;
+      color: var(--brand-color) !important;
     }
   }
 }
