@@ -20,8 +20,8 @@
 }
 
 .wide-white {
-  background: white;
-  box-shadow: 0 0 0 100vmax white;
+  background: var(--bs-body-bg);
+  box-shadow: 0 0 0 100vmax var(--bs-body-bg);
   clip-path: inset(-1px -100vmax);
 }
 
@@ -92,7 +92,7 @@
     display: flex;
 
     &:hover {
-      color: rgba(33, 37, 41, 0.75);
+      color: var(--bs-secoundary-color); //rgba(33, 37, 41, 0.75)
       background-color: var(--bs-tertiary-bg);
     }
     &:focus {

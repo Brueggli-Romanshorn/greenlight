@@ -67,7 +67,7 @@ export default function ServerRoomRow({ room }) {
     <tr className="align-middle text-muted border border-2">
       <td className="border-end-0">
         <Stack>
-          <span className="text-dark fw-bold"> {name} </span>
+          <span className="fw-bold"> {name} </span>
           <span> {renderLastSession()} </span>
         </Stack>
       </td>

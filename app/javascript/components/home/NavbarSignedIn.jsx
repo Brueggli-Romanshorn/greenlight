@@ -14,12 +14,12 @@
 // You should have received a copy of the GNU Lesser General Public License along
 // with Greenlight; if not, see <http://www.gnu.org/licenses/>.
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Button, Nav, Navbar, NavDropdown, Stack,
 } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { IdentificationIcon, QuestionMarkCircleIcon, StarIcon } from '@heroicons/react/24/outline';
+import { IdentificationIcon, MoonIcon, QuestionMarkCircleIcon, SunIcon, BriefcaseIcon } from '@heroicons/react/24/outline';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
@@ -31,6 +31,18 @@ export default function NavbarSignedIn({ currentUser }) {
   const { t } = useTranslation();
   const deleteSession = useDeleteSession({ showToast: true });
   const { data: helpCenter } = useSiteSetting('HelpCenter');
+  const [theme, setTheme] = useState("light"); //State about dark-mode
+
+  useEffect(() => {
+    document.body.setAttribute("data-bs-theme", theme);
+  }, [theme]);
+
+  let ThemeModeIcon;
+  if (theme === 'dark') {
+    ThemeModeIcon = <SunIcon className="hi-s me-3" />;
+  } else {
+    ThemeModeIcon = <MoonIcon className="hi-s me-3" />;
+  }
 
   const adminAccess = () => {
     const { permissions } = currentUser;
@@ -50,6 +62,10 @@ export default function NavbarSignedIn({ currentUser }) {
 
     return false;
   };
+
+  const changeThemeMode = () => {
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+  }
 
   return (
     <>
@@ -76,7 +92,7 @@ export default function NavbarSignedIn({ currentUser }) {
             adminAccess()
             && (
               <Nav.Link eventKey={3} as={Link} to="/admin">
-                <StarIcon className="hi-s me-3 mb-1" />
+                <BriefcaseIcon className="hi-s me-3 mb-1" />
                 { t('admin.admin_panel') }
               </Nav.Link>
             )
@@ -106,6 +122,10 @@ export default function NavbarSignedIn({ currentUser }) {
           align="end"
         >
 
+          <NavDropdown.Item onClick={changeThemeMode}>
+            {ThemeModeIcon}
+            {theme === "light" ? "Dark Mode" : "Light Mode"}
+          </NavDropdown.Item>
           <NavDropdown.Item as={Link} to="/profile">
             <IdentificationIcon className="hi-s me-3" />
             { t('user.profile.profile') }
@@ -123,7 +143,7 @@ export default function NavbarSignedIn({ currentUser }) {
             adminAccess()
             && (
               <NavDropdown.Item as={Link} to="/admin">
-                <StarIcon className="hi-s me-3 mb-1" />
+                <BriefcaseIcon className="hi-s me-3 mb-1" />
                 { t('admin.admin_panel') }
               </NavDropdown.Item>
             )
