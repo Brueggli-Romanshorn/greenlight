@@ -245,7 +245,7 @@ input.search-bar {
   border-radius: $border-radius;
 
   &:hover {
-    background-color: var(--bs-secondary-bg);
+    background-color: var(--bs-tertiary-bg);
     color: var(--bs-body-color) !important;
   }
   &:active {
