@@ -59,7 +59,7 @@ body {
   top: 100%;
 
   a {
-    color: $black !important;
+    color: var(--bs-body-color) !important;
   }
 }
 

@@ -22,6 +22,8 @@
   "copy_moderator_code": "Zugangscode für Moderation kopieren",
   "or": "oder",
   "online": "Online",
+  "dark_mode": "Dunkler Modus",
+  "white_mode": "Heller Modus",
   "help_center": "Hilfe",
   "are_you_sure": "Wirklich sicher?",
   "return_home": "Zurück zur Startseite",
@@ -269,7 +271,7 @@
       "no_recordings_found": "Keine Aufzeichnungen gefunden."
     },
     "site_settings": {
-      "site_settings": "Seite",
+      "site_settings": "Allgemein",
       "customize_greenlight": "Greenlight anpassen",
       "appearance": {
         "appearance": "Darstellung",

@@ -74,7 +74,11 @@ export default function NavbarSignedIn({ currentUser }) {
         <Avatar avatar={currentUser?.avatar} size="small" />
       </Navbar.Toggle>
       <Navbar.Collapse id="navbar-menu" className="bg-white w-100 position-absolute">
-        <Nav className="d-block d-sm-none text-black px-2">
+        <Nav className="d-block d-sm-none px-2">
+          <Nav.Link onClick={changeThemeMode} >
+            {ThemeModeIcon}
+            {theme === "light" ? t('dark_mode') : t('white_mode')}
+          </Nav.Link>
           <Nav.Link eventKey={1} as={Link} to="/profile">
             <IdentificationIcon className="hi-s me-3" />
             {t('user.profile.profile')}
@@ -124,7 +128,7 @@ export default function NavbarSignedIn({ currentUser }) {
 
           <NavDropdown.Item onClick={changeThemeMode}>
             {ThemeModeIcon}
-            {theme === "light" ? "Dark Mode" : "Light Mode"}
+            {theme === "light" ? t('dark_mode') : t('white_mode')}
           </NavDropdown.Item>
           <NavDropdown.Item as={Link} to="/profile">
             <IdentificationIcon className="hi-s me-3" />
