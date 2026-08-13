@@ -72,10 +72,10 @@ export default function InvitedUsersTable({ searchInput }) {
                     && (
                       invitations?.data?.map((invitation) => (
                         <tr key={invitation.email} className="align-middle text-muted">
-                          <td className="text-dark border-0">{invitation.email}</td>
-                          <td className="text-dark border-0">{invitation.name}</td>
-                          <td className="text-dark border-0">{localizeDateTimeString(invitation.updated_at, currentUser?.language)}</td>
-                          <td className="text-dark border-0">
+                          <td className="border-0">{invitation.email}</td>
+                          <td className="border-0">{invitation.name}</td>
+                          <td className="border-0">{localizeDateTimeString(invitation.updated_at, currentUser?.language)}</td>
+                          <td className="border-0">
                             { invitation.valid ? <CheckIcon className="text-success hi-s" /> : <XMarkIcon className="text-danger hi-s" />}
                           </td>
                           <td className="text-dark border-0">

@@ -89,7 +89,7 @@ export default function Select({
         <Dropdown.Toggle
           id="edit-user-dropdown"
           onBlur={handleBlur}
-          className="text-start text-black border-1 form-control"
+          className="text-start border-1 form-control"
           variant={isValid ? variant : 'delete'}
         >
           {selected.title}

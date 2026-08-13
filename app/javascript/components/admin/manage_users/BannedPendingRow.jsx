@@ -79,7 +79,7 @@ export default function BannedPendingRow({ user, tableType }) {
             <Avatar avatar={user.avatar} size="small" />
           </div>
           <Stack>
-            <span className="text-dark fw-bold"> {user.name} </span>
+            <span className="fw-bold"> {user.name} </span>
             <span className="small"> { t('admin.manage_users.user_created_at', { localizedTime }) }</span>
           </Stack>
         </Stack>

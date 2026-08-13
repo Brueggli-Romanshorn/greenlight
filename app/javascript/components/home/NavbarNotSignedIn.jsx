@@ -25,7 +25,7 @@ export default function NavbarNotSignedIn() {
 
       {/* Hidden Mobile */}
       <Navbar.Collapse id="navbar-menu" className="bg-white w-100 position-absolute">
-        <Nav className="d-block d-sm-none text-black px-2">
+        <Nav className="d-block d-sm-none px-2">
           <AuthButtons direction="vertical" />
         </Nav>
       </Navbar.Collapse>

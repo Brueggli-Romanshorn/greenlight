@@ -79,7 +79,7 @@ export default function RecordingRow({
       onMouseEnter={() => setDisplay('visible')}
       onMouseLeave={() => setDisplay('invisible')}
     >
-      <td className="border-end-0 text-dark">
+      <td className="border-end-0">
         <Stack direction="horizontal" className="py-2">
           <div className="recording-icon-circle rounded-circle me-3 d-flex justify-content-center">
             <VideoCameraIcon className="hi-s text-brand" />
