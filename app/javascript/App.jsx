@@ -28,6 +28,7 @@ import Footer from './components/shared_components/Footer';
 import useSiteSetting from './hooks/queries/site_settings/useSiteSetting';
 import Title from './components/shared_components/utilities/Title';
 import useEnv from './hooks/queries/env/useEnv';
+import { useTheme } from './contexts/ThemeProvider';
 
 export default function App() {
   const currentUser = useAuth();
@@ -37,6 +38,14 @@ export default function App() {
   const { data: env } = useEnv();
   const autoSignIn = searchParams.get('sso');
   const [formElement, setFormElement] = useState(null);
+
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    if (currentUser?.theme) {
+      setTheme(currentUser.theme);
+    }
+  }, [currentUser?.theme, setTheme]);
 
   // check for the maintenance banner
   const maintenanceBanner = useSiteSetting(['Maintenance']);
@@ -52,7 +61,7 @@ export default function App() {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: 'light',
+        theme: theme,
         className: 'text-center maintenance-toast',
       });
       localStorage.setItem('maintenanceBannerId', toastId);

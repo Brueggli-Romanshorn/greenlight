@@ -173,7 +173,7 @@ module Api
       private
 
       def create_user_params
-        @create_user_params ||= params.require(:user).permit(:name, :email, :password, :avatar, :language, :invite_token)
+        @create_user_params ||= params.require(:user).permit(:name, :email, :password, :avatar, :language, :theme, :invite_token)
       end
 
       def update_user_params
@@ -206,13 +206,13 @@ module Api
       def permitted_params
         is_admin = PermissionsChecker.new(current_user:, permission_names: 'ManageUsers', current_provider:).call
 
-        return %i[password avatar language role_id invite_token] if external_auth? && !is_admin
+        return %i[password avatar theme language role_id invite_token] if external_auth? && !is_admin
 
         allow_name_update = SettingGetter.new(setting_name: 'AllowNameUpdate', provider: current_provider).call
 
-        return %i[password avatar language role_id invite_token] if !allow_name_update && !is_admin
+        return %i[password avatar language theme role_id invite_token] if !allow_name_update && !is_admin
 
-        %i[name password avatar language role_id invite_token]
+        %i[name password avatar language theme role_id invite_token]
       end
     end
   end

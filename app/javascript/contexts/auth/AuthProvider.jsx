@@ -40,6 +40,7 @@ export default function AuthProvider({ children }) {
     avatar: currentUser?.avatar,
     signed_in: currentUser?.signed_in ?? false,
     language: currentUser?.language || currentUser?.default_locale || window.navigator.language || window.navigator.userLanguage,
+    theme: currentUser?.theme,
     permissions: currentUser?.permissions,
     role: currentUser?.role,
     verified: currentUser?.verified,

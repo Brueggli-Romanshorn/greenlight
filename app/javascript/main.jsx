@@ -54,6 +54,7 @@ import RootBoundary from './RootBoundary';
 import Tenants from './components/admin/tenants/Tenants';
 import RoomIdRouter from './routes/RoomIdRouter';
 import PublicRecordings from './components/rooms/room/public_recordings/PublicRecordings';
+import { ThemeProvider } from './contexts/ThemeProvider';
 
 const queryClientConfig = {
   defaultOptions: {
@@ -118,9 +119,11 @@ render(
   // eslint-disable-next-line react/jsx-no-useless-fragment
   <React.Suspense fallback={<></>}>
     <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <RouterProvider router={router} />
-      </AuthProvider>
+      <ThemeProvider>
+        <AuthProvider>
+          <RouterProvider router={router} />
+        </AuthProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   </React.Suspense>,
   rootElement,

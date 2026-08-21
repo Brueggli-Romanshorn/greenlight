@@ -26,16 +26,15 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import useDeleteSession from '../../hooks/mutations/sessions/useDeleteSession';
 import Avatar from '../users/user/Avatar';
 import useSiteSetting from '../../hooks/queries/site_settings/useSiteSetting';
+import { useTheme } from '../../contexts/ThemeProvider';
+import useUpdateUser from '../../hooks/mutations/users/useUpdateUser';
 
 export default function NavbarSignedIn({ currentUser }) {
   const { t } = useTranslation();
   const deleteSession = useDeleteSession({ showToast: true });
   const { data: helpCenter } = useSiteSetting('HelpCenter');
-  const [theme, setTheme] = useState("light"); //State about dark-mode
-
-  useEffect(() => {
-    document.body.setAttribute("data-bs-theme", theme);
-  }, [theme]);
+  const { theme, setTheme } = useTheme();
+  const updateUser = useUpdateUser(currentUser.id);
 
   let ThemeModeIcon;
   if (theme === 'dark') {
@@ -64,7 +63,15 @@ export default function NavbarSignedIn({ currentUser }) {
   };
 
   const changeThemeMode = () => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+    const newTheme = theme === "dark" ? "light" : "dark";
+
+    setTheme(newTheme);
+    updateUser.mutate({
+          user: {
+            theme: newTheme,
+            role_id: currentUser.role.id,
+          },
+        });
   }
 
   return (
@@ -77,7 +84,7 @@ export default function NavbarSignedIn({ currentUser }) {
         <Nav className="d-block d-sm-none px-2">
           <Nav.Link onClick={changeThemeMode} >
             {ThemeModeIcon}
-            {theme === "light" ? t('dark_mode') : t('white_mode')}
+            {theme === "light" ? t('dark_mode') : t('bright_mode')}
           </Nav.Link>
           <Nav.Link eventKey={1} as={Link} to="/profile">
             <IdentificationIcon className="hi-s me-3" />
@@ -128,7 +135,7 @@ export default function NavbarSignedIn({ currentUser }) {
 
           <NavDropdown.Item onClick={changeThemeMode}>
             {ThemeModeIcon}
-            {theme === "light" ? t('dark_mode') : t('white_mode')}
+            {theme === "light" ? t('dark_mode') : t('bright_mode')}
           </NavDropdown.Item>
           <NavDropdown.Item as={Link} to="/profile">
             <IdentificationIcon className="hi-s me-3" />

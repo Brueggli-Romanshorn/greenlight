@@ -16,22 +16,10 @@
 
 # frozen_string_literal: true
 
-class UserSerializer < ApplicationSerializer
-  include Avatarable
-
-  attributes :id, :name, :email, :provider, :language, :theme, :avatar, :verified, :created_at, :external_account
-
-  belongs_to :role
-
-  def language
-    object.language.tr('_', '-')
-  end
-
-  def external_account
-    object.external_id?
-  end
-
-  def avatar
-    user_avatar(object)
+class AddThemeToUsers < ActiveRecord::Migration[7.2]
+  def change
+    change_table :users do |t|
+      t.string :theme, null: false, default: 'light'
+    end
   end
 end
