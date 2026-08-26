@@ -32,17 +32,13 @@ export default function useUpdateUser(userId, options = {}) {
     }
   }
 
-  function onError() {
-    if (withToast) {
-      toast.error(t('toast.error.problem_completing_action'));
-    }
-  }
-
   return useMutation(
     (data) => axios.patch(`/users/${userId}.json`, data),
     {
       onSuccess,
-      onError,
+      onError: () => {
+        toast.error(t('toast.error.problem_completing_action'));
+      },
     },
   );
 }
