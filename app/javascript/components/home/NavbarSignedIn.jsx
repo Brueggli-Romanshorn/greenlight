@@ -34,7 +34,7 @@ export default function NavbarSignedIn({ currentUser }) {
   const deleteSession = useDeleteSession({ showToast: true });
   const { data: helpCenter } = useSiteSetting('HelpCenter');
   const { theme, setTheme } = useTheme();
-  const updateUser = useUpdateUser(currentUser.id);
+  const updateUser = useUpdateUser(currentUser.id, { withToast: false });
 
   let ThemeModeIcon;
   if (theme === 'dark') {
