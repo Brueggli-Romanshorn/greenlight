@@ -32,7 +32,7 @@ export default function Footer() {
 
   return (
     <footer id="footer" className="footer text-center">
-      <Container id="footer-container" className="py-3">
+      <Container id="footer-container" className="py-2">
         { links?.PrivacyPolicy
           && (
             <DisplayModal title={ t('admin.site_settings.administration.privacy_policy') } name="PrivacyText">
