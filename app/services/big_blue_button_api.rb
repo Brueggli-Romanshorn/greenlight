@@ -35,6 +35,7 @@ class BigBlueButtonApi
 
   # Start a meeting for a specific room and returns the join URL.
   def start_meeting(room:, options: {}, presentation_url: nil)
+    options[:logo] ||= SiteSetting.joins(:setting).find_by( provider: @provider, setting: { name: 'BrandingImage' }).value
     if presentation_url.present?
       modules = BigBlueButton::BigBlueButtonModules.new
       modules.add_presentation(:url, presentation_url)
