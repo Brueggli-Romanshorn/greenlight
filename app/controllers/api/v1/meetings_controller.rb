@@ -39,7 +39,8 @@ module Api
           name: current_user.name,
           user_id: fetch_bbb_user_id,
           avatar_url: current_user.avatar.attached? ? url_for(current_user.avatar) : nil,
-          role: 'Moderator'
+          role: 'Moderator',
+          dark_theme: current_user.theme == "dark" ? 'true' : nil
         ), status: :created
       end
 

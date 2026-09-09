@@ -45,7 +45,7 @@ class BigBlueButtonApi
     end
   end
 
-  def join_meeting(room:, role:, user_id:, name: nil, avatar_url: nil)
+  def join_meeting(room:, role:, user_id:, name: nil, avatar_url: nil, dark_theme: nil)
     bbb_server.join_meeting_url(
       room.meeting_id,
       name,
@@ -54,7 +54,8 @@ class BigBlueButtonApi
         userID: user_id,
         role:,
         avatarURL: avatar_url,
-        createTime: room.last_session&.to_datetime&.strftime('%Q')
+        createTime: room.last_session&.to_datetime&.strftime('%Q'),
+        "userdata-bbb_prefer_dark_theme": dark_theme
       }.compact
     )
   end
