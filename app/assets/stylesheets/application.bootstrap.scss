@@ -314,6 +314,18 @@ input.search-bar {
   --bs-nav-link-font-size: 1rem;
 }
 
+[data-bs-theme="dark"] {
+  .btn-brand-outline {
+    border: 2px solid var(--brand-color);
+    color: var(--brand-color-light);
+
+    &:active, &:hover {
+      color: var(--brand-color-light);
+      border-color: var(--brand-color-light);
+    }
+  }
+}
+
 .text-brand {
   color: var(--brand-color);
 }
@@ -345,18 +357,18 @@ input.search-bar {
 .btn-brand-outline {
   border: 2px solid gainsboro;
   color: var(--brand-color);
-  background-color: white;
+  background-color: var(--button-bg-color);
   box-shadow: var(--brand-color-light);
 
   &:active {
     border-color: var(--brand-color) !important;
-    background-color: white !important;
+    background-color: var(--button-bg-color) !important;
     color: var(--brand-color) !important;
   }
 
   &:hover {
     border-color: var(--brand-color);
-    background-color: white;
+    background-color: var(--button-bg-color);
     color: var(--brand-color);
   }
 
