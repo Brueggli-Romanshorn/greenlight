@@ -45,8 +45,10 @@ $input-max-width: 300px;
   --toastify-color-error: #dc3545;
   --toastify-font-family: "Inter";
   --button-bg-color: white;
+  --title-text-color: #414753;
 }
 
 [data-bs-theme="dark"] {
   --button-bg-color: #3d3d3d;
+  --title-text-color: #d5dbe6;
 }
