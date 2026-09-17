@@ -54,7 +54,7 @@
     min-height: $admin-card-height;
 
     table, td, tr {
-      border-color: whitesmoke !important;
+      border-color: var(--border-color) !important;
     }
     .dropdown {
       position: static;
