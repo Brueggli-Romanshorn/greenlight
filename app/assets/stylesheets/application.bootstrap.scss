@@ -315,6 +315,9 @@ input.search-bar {
 }
 
 [data-bs-theme="dark"] {
+  #room-card .room-icon {
+    background-color: var(--bs-tertiary-bg);
+  }
   .btn-brand-outline {
     border: 2px solid #91959e;
     color: var(--brand-color-light);
@@ -322,6 +325,14 @@ input.search-bar {
     &:active, &:hover {
       color: var(--brand-color-light);
       border-color: var(--brand-color);
+    }
+  }
+  .nav-pills .nav-link.active {
+    color: var(--brand-color-light) !important;
+    background-color: var(--nightblue);
+    font-weight: inherit;
+    svg {
+      color: var(--brand-color-light) !important;
     }
   }
 }
