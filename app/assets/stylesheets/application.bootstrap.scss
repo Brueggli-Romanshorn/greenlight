@@ -319,11 +319,12 @@ input.search-bar {
     background-color: var(--bs-tertiary-bg);
   }
   .btn-brand-outline {
-    border: 2px solid #91959e;
+    background-color: var(--bs-secondary-bg);
+    border: 2px solid var(--bs-secondary-bg);
     color: var(--brand-color-light);
 
     &:active, &:hover {
-      color: var(--brand-color-light);
+      color: var(--brand-color);
       border-color: var(--brand-color);
     }
   }
@@ -493,15 +494,13 @@ input.search-bar {
 
 .setting-select {
   button {
-    background: white !important;
-    color: black !important;
-    border-color: gainsboro !important;
+    background: var(--bs-tertiary-bg) !important;
+    color: var(--bs-body-color) !important;
+    border-color: var(--control-border-color) !important;
     text-align: left;
 
     &:hover, &:focus, &:active {
-      background: white !important;
-      color: black !important;
-      border-color: gainsboro !important;
+      background: var(--bs-secondary-bg) !important;
     }
     &:focus {
       box-shadow: 0 0 0 0.25rem var(--brand-color-light) !important;
